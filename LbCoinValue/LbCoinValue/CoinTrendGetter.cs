@@ -57,7 +57,7 @@ namespace LbCoinValue
                 // Prepare the result
                 trend.CurrentValue = coinValues.Last();
                 trend.Trend = (slope > 0.05) ? 1 // Positive trend
-                    : (slope < -0.05) ? -1        // Negative trend
+                    : (slope < -0.05) ? -1       // Negative trend
                     : 0;                         // Flat trend
             }
 

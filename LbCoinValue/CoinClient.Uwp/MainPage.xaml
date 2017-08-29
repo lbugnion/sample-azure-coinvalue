@@ -9,5 +9,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <Button Content="Click me"
+                Click="ButtonClick" />
+
     </Grid>
 </Page>

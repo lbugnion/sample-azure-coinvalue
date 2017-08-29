@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoinClient.Data.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,13 @@ namespace CoinClient.Uwp
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private async void ButtonClick(object sender, RoutedEventArgs e)
+        {
+            var service = new CoinService();
+            var trend = await service.GetTrend();
+            ((Button)sender).Content = trend.CurrentValue;
         }
     }
 }

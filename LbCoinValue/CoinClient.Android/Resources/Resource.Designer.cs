@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("CoinClient.Android.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("CoinClient.Resource", IsApplication=true)]
 
-namespace CoinClient.Android
+namespace CoinClient
 {
 	
 	
