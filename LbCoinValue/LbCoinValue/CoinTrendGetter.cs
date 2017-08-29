@@ -8,6 +8,7 @@ using Microsoft.Azure.WebJobs.Host;
 using Microsoft.WindowsAzure.Storage;
 using System;
 using Newtonsoft.Json;
+using CoinClient;
 
 namespace LbCoinValue
 {
@@ -16,8 +17,6 @@ namespace LbCoinValue
         private const int StandardCount = 10;
 
         [FunctionName("CoinTrendGetter")]
-        //public static async Task Run(
-        //[TimerTrigger("0 * */1 * * *")]TimerInfo myTimer, TraceWriter log)
         public static async Task<HttpResponseMessage> Run(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
