@@ -14,12 +14,15 @@ namespace LbCoinValue
     public static class CoinValueSaver
     {
         public const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=lbfunctionsampl9985;AccountKey=4T2rnnQDwjpOHdEnf2tFey+iqmuxdtj/1uwiaHMLN6zU9+NrGGUCv8mtoSXpBgyX2kn+7P04OjLLHEebiOIJ1g==;BlobEndpoint=https://lbfunctionsampl9985.blob.core.windows.net/;QueueEndpoint=https://lbfunctionsampl9985.queue.core.windows.net/;TableEndpoint=https://lbfunctionsampl9985.table.core.windows.net/;FileEndpoint=https://lbfunctionsampl9985.file.core.windows.net/;";
-        public const string TableName = "coins2";
+        public const string TableName = "coins";
         private const string Url = "https://coinmarketcap-nexuist.rhcloud.com/api/btc";
 
         [FunctionName("CoinValueSaver")]
-        public static async Task Run([TimerTrigger("0 * */1 * * *")]TimerInfo myTimer, TraceWriter log)
+        public static async Task Run([TimerTrigger("0 0 */1 * * *")]TimerInfo myTimer, TraceWriter log)
         {
+            // Every hour: 0 0 */1 * * *
+            // See https://codehollow.com/2017/02/azure-functions-time-trigger-cron-cheat-sheet/
+
             log.Info($"CoinValueSaver executed at: {DateTime.Now}");
 
             // Create account, client and table
