@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LbCoinValue", "LbCoinValue\LbCoinValue.csproj", "{7DE1E217-964C-45E8-89B2-E5970D7F7DF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LbCoinValue", "LbCoinValue\LbCoinValue.csproj", "{7DE1E217-964C-45E8-89B2-E5970D7F7DF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinClient.Android", "CoinClient.Android\CoinClient.Android.csproj", "{8484851E-884E-479C-B0AE-C7D25773B1EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinClient.Data", "CoinClient.Data\CoinClient.Data.csproj", "{BCA57006-1833-4488-96AD-4D3252F84BA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoinClient.Data", "CoinClient.Data\CoinClient.Data.csproj", "{BCA57006-1833-4488-96AD-4D3252F84BA3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinClient.Uwp", "CoinClient.Uwp\CoinClient.Uwp.csproj", "{49A80D37-34F2-4598-A98E-DF98CE4CEDE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinClient.Test", "CoinClient.Test\CoinClient.Test.csproj", "{E1031FDE-EF5E-4B79-95CC-E1394748345C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,22 @@ Global
 		{49A80D37-34F2-4598-A98E-DF98CE4CEDE9}.Release|x86.ActiveCfg = Release|x86
 		{49A80D37-34F2-4598-A98E-DF98CE4CEDE9}.Release|x86.Build.0 = Release|x86
 		{49A80D37-34F2-4598-A98E-DF98CE4CEDE9}.Release|x86.Deploy.0 = Release|x86
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Debug|ARM.Build.0 = Debug|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Debug|x64.Build.0 = Debug|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Debug|x86.Build.0 = Debug|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|ARM.Build.0 = Release|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|x64.ActiveCfg = Release|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|x64.Build.0 = Release|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|x86.ActiveCfg = Release|Any CPU
+		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
