@@ -13,7 +13,7 @@ namespace LbCoinValue
 {
     public static class CoinValueSaver
     {
-        public const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=lbfunctionsampl9985;AccountKey=4T2rnnQDwjpOHdEnf2tFey+iqmuxdtj/1uwiaHMLN6zU9+NrGGUCv8mtoSXpBgyX2kn+7P04OjLLHEebiOIJ1g==;BlobEndpoint=https://lbfunctionsampl9985.blob.core.windows.net/;QueueEndpoint=https://lbfunctionsampl9985.queue.core.windows.net/;TableEndpoint=https://lbfunctionsampl9985.table.core.windows.net/;FileEndpoint=https://lbfunctionsampl9985.file.core.windows.net/;";
+        public const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=lbhackfest;AccountKey=PMYwcvXDTWcnoT3G4XbL4rLhLb2SIDRDOVCvmyP3uA08MXWNGNch86ozxeHuASz8Ket0TEmcqhNoopfIT1T7qw==;BlobEndpoint=https://lbhackfest.blob.core.windows.net/;QueueEndpoint=https://lbhackfest.queue.core.windows.net/;TableEndpoint=https://lbhackfest.table.core.windows.net/;FileEndpoint=https://lbhackfest.file.core.windows.net/;";
         public const string TableName = "coins";
         private const string Url = "https://coinmarketcap-nexuist.rhcloud.com/api/btc";
 

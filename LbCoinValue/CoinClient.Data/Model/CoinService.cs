@@ -6,7 +6,7 @@ namespace CoinClient.Data.Model
 {
     public class CoinService : ICoinService
     {
-        private const string Url = "https://lbcoinvalue.azurewebsites.net/api/CoinTrendGetter?code=LZ9GFEPbM5LAxKLp/fnPNI8M1T0ZJ6LwY9a55Cs6XZYfBMrlatcSMQ==";
+        private const string Url = "https://lbcoinvalueapp.azurewebsites.net/api/CoinTrendGetter?code=/14FZhzxOdCKjGn9mn69SKHGaOM6JQ8naN2FCaU9O0ACyECCe1g3Iw==";
 
         public async Task<CoinTrend> GetTrend()
         {

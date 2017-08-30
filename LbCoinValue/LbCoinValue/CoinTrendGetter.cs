@@ -7,7 +7,6 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.WindowsAzure.Storage;
 using System;
-using Newtonsoft.Json;
 using CoinClient;
 
 namespace LbCoinValue
