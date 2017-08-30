@@ -1,4 +1,4 @@
-﻿using CoinClient.Data.Model;
+﻿using CoinClient.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 

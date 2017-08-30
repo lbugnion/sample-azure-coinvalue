@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace CoinClient.Data.Model
+namespace CoinClient.Model
 {
     public interface ICoinService
     {

@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using CoinClient.Data.Model;
+using CoinClient.Model;
 
 namespace CoinClient.Design
 {

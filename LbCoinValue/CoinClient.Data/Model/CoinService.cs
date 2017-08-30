@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace CoinClient.Data.Model
+namespace CoinClient.Model
 {
     public class CoinService : ICoinService
     {
