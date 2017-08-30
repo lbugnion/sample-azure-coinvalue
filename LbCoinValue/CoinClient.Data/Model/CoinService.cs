@@ -13,13 +13,6 @@ namespace CoinClient.Data.Model
             var client = new HttpClient();
             var json = await client.GetStringAsync(Url);
 
-            // Workaround for weird formatting
-            json = json
-                .Replace("\\", string.Empty);
-
-            json = json.Substring(1);
-            json = json.Substring(0, json.Length - 1);
-
             var trend = JsonConvert.DeserializeObject<CoinTrend>(json);
             return trend;
         }

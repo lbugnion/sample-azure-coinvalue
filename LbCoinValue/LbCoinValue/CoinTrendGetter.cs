@@ -61,8 +61,7 @@ namespace LbCoinValue
                     : 0;                         // Flat trend
             }
 
-            var result = JsonConvert.SerializeObject(trend);
-            return req.CreateResponse(HttpStatusCode.OK, result);
+            return req.CreateResponse(HttpStatusCode.OK, trend, "application/json");
         }
     }
 }
