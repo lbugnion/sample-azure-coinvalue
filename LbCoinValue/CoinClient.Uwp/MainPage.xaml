@@ -1,19 +1,21 @@
 ﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:local="using:CoinClient.Uwp"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:Helpers="using:CoinClient.Helpers"
       x:Class="CoinClient.Uwp.MainPage"
       mc:Ignorable="d">
+    
     <Page.Resources>
         <Helpers:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Page.Resources>
+
     <Page.DataContext>
         <Binding Mode="OneWay"
                  Path="Main"
                  Source="{StaticResource Locator}" />
     </Page.DataContext>
+    
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.Content>
@@ -32,21 +34,24 @@
             <Image Source="Assets/ArrowFlat.png"
                    VerticalAlignment="Top"
                    Visibility="{Binding IsFlatTrendVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
+    
             <Image Source="Assets/ArrowDown.png"
                    VerticalAlignment="Top"
                    Visibility="{Binding IsDownTrendVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            
             <Image Source="Assets/ArrowUp.png"
                    VerticalAlignment="Top"
                    Visibility="{Binding IsUpTrendVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
         </Grid>
+        
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="0,48,0,0">
-
             <TextBlock HorizontalAlignment="Center"
                        FontSize="36"
                        Text="Value:"
                        Margin="0,0,10,0" />
+            
             <TextBlock Text="{Binding CurrentCoinValue}"
                        HorizontalAlignment="Center"
                        FontSize="36" />
