@@ -1,4 +1,4 @@
-﻿using CoinClient.Data.Model;
+﻿using CoinClient.Model;
 using System.Threading.Tasks;
 
 namespace CoinClient.Test

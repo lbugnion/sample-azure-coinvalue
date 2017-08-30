@@ -8,6 +8,7 @@ using Microsoft.Azure.WebJobs.Host;
 using Microsoft.WindowsAzure.Storage;
 using System;
 using CoinClient;
+using CoinClient.Model;
 
 namespace LbCoinValue
 {

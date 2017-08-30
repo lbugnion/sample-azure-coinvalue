@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LbCoinValue", "LbCoinValue\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinClient.Android", "CoinClient.Android\CoinClient.Android.csproj", "{8484851E-884E-479C-B0AE-C7D25773B1EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoinClient.Data", "CoinClient.Data\CoinClient.Data.csproj", "{BCA57006-1833-4488-96AD-4D3252F84BA3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinClient.Uwp", "CoinClient.Uwp\CoinClient.Uwp.csproj", "{49A80D37-34F2-4598-A98E-DF98CE4CEDE9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinClient.Test", "CoinClient.Test\CoinClient.Test.csproj", "{E1031FDE-EF5E-4B79-95CC-E1394748345C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinClient.Data", "CoinClient.Data\CoinClient.Data.csproj", "{73D2EA4D-A409-415B-A6B1-1F2344804DDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,22 +65,6 @@ Global
 		{8484851E-884E-479C-B0AE-C7D25773B1EE}.Release|x86.ActiveCfg = Release|Any CPU
 		{8484851E-884E-479C-B0AE-C7D25773B1EE}.Release|x86.Build.0 = Release|Any CPU
 		{8484851E-884E-479C-B0AE-C7D25773B1EE}.Release|x86.Deploy.0 = Release|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Debug|ARM.Build.0 = Debug|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Debug|x64.Build.0 = Debug|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Debug|x86.Build.0 = Debug|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Release|ARM.ActiveCfg = Release|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Release|ARM.Build.0 = Release|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Release|x64.ActiveCfg = Release|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Release|x64.Build.0 = Release|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Release|x86.ActiveCfg = Release|Any CPU
-		{BCA57006-1833-4488-96AD-4D3252F84BA3}.Release|x86.Build.0 = Release|Any CPU
 		{49A80D37-34F2-4598-A98E-DF98CE4CEDE9}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{49A80D37-34F2-4598-A98E-DF98CE4CEDE9}.Debug|ARM.ActiveCfg = Debug|ARM
 		{49A80D37-34F2-4598-A98E-DF98CE4CEDE9}.Debug|ARM.Build.0 = Debug|ARM
@@ -117,6 +101,22 @@ Global
 		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|x64.Build.0 = Release|Any CPU
 		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|x86.ActiveCfg = Release|Any CPU
 		{E1031FDE-EF5E-4B79-95CC-E1394748345C}.Release|x86.Build.0 = Release|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Debug|ARM.Build.0 = Debug|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Debug|x64.Build.0 = Debug|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Debug|x86.Build.0 = Debug|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Release|ARM.ActiveCfg = Release|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Release|ARM.Build.0 = Release|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Release|x64.ActiveCfg = Release|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Release|x64.Build.0 = Release|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Release|x86.ActiveCfg = Release|Any CPU
+		{73D2EA4D-A409-415B-A6B1-1F2344804DDD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

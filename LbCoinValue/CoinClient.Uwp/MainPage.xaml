@@ -11,6 +11,7 @@
             <CommandBar.Content>
                 <Grid />
             </CommandBar.Content>
+            
             <AppBarButton Icon="Refresh"
                           Label="Refresh" />
         </CommandBar>
