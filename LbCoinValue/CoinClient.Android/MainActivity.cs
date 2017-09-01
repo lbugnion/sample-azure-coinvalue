@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace CoinClient
 {
-    [Activity(Label = "Bitcoin watcher", MainLauncher = true)]
+    [Activity(Label = "Bitcoin watcher", MainLauncher = true, Icon = "@drawable/icon")]
     public partial class MainActivity
     {
         private MainViewModel Vm => App.Locator.Main;
