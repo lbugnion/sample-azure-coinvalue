@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#00000000"
+    android:background="@color/white"
     android:minWidth="25px"
     android:minHeight="25px">
     <ImageView
@@ -11,13 +11,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/ArrowImage"
         android:layout_centerHorizontal="true" />
-    <Button
-        android:text="Refresh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/RefreshButton"
-        android:width="180dp"
-        android:layout_alignParentBottom="true" />
     <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
@@ -31,12 +24,78 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="36dp"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
         <TextView
             android:text="0.0"
             android:id="@+id/ValueLabel"
             android:textSize="36dp"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:foreground="@color/black"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/msblue"
+        android:id="@+id/BottomPanel">
+        <Button
+            android:text="Refresh"
+            android:id="@+id/RefreshButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/BottomPanel"
+        android:background="@color/msblue">
+        <TextView
+            android:text="This sample brought to you by:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+        <TextView
+            android:text="Laurent Bugnion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
+        <TextView
+            android:text="Cloud Developer Advocate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+        <TextView
+            android:text="LBugnion@microsoft.com | LBugnion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="11dp"
+            android:layout_marginTop="4dp" />
+        <ImageView
+            android:src="@drawable/mslogosmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 </RelativeLayout>

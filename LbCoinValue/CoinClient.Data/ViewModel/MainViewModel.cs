@@ -116,7 +116,7 @@ namespace CoinClient.ViewModel
                         {
                             CurrentCoinValue = 0;
                             IsUpTrendVisible = false;
-                            IsFlatTrendVisible = false;
+                            IsFlatTrendVisible = true;
                             IsDownTrendVisible = false;
                             ErrorMessage = ex.Message;
                         }
