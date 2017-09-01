@@ -117,6 +117,9 @@
     <Content Include="..\CoinClient.Android\Resources\drawable\ArrowUp.png">
       <Link>Assets\ArrowUp.png</Link>
     </Content>
+    <Content Include="..\CoinClient.Android\Resources\drawable\MS Logo Small.png">
+      <Link>Assets\MS Logo Small.png</Link>
+    </Content>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

@@ -5,7 +5,7 @@
       xmlns:Helpers="using:CoinClient.Helpers"
       x:Class="CoinClient.Uwp.MainPage"
       mc:Ignorable="d">
-    
+
     <Page.Resources>
         <Helpers:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Page.Resources>
@@ -15,46 +15,100 @@
                  Path="Main"
                  Source="{StaticResource Locator}" />
     </Page.DataContext>
-    
+
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar Background="#FF004185"
+                    Foreground="White">
             <CommandBar.Content>
                 <Grid />
             </CommandBar.Content>
 
             <AppBarButton Icon="Refresh"
                           Label="Refresh"
-                          Command="{Binding RefreshCommand, Mode=OneWay}" />
+                          Command="{Binding RefreshCommand, Mode=OneWay}"
+                          Foreground="White" />
         </CommandBar>
     </Page.BottomAppBar>
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
         <Grid Width="200"
-              Margin="0,48,0,0">
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center">
             <Image Source="Assets/ArrowFlat.png"
                    VerticalAlignment="Top"
                    Visibility="{Binding IsFlatTrendVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
-    
+
             <Image Source="Assets/ArrowDown.png"
                    VerticalAlignment="Top"
                    Visibility="{Binding IsDownTrendVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
-            
+
             <Image Source="Assets/ArrowUp.png"
                    VerticalAlignment="Top"
                    Visibility="{Binding IsUpTrendVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
         </Grid>
-        
+
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
-                    Margin="0,48,0,0">
+                    Margin="118,35.667,118,0"
+                    Grid.Row="1"
+                    VerticalAlignment="Top">
             <TextBlock HorizontalAlignment="Center"
                        FontSize="36"
                        Text="Value:"
                        Margin="0,0,10,0" />
-            
+
             <TextBlock Text="{Binding CurrentCoinValue}"
                        HorizontalAlignment="Center"
                        FontSize="36" />
         </StackPanel>
-    </StackPanel>
+        
+        <TextBlock Text="{Binding ErrorMessage}"
+                   HorizontalAlignment="Center"
+                   FontSize="20"
+                   Grid.Row="2"
+                   Foreground="Red"
+                   VerticalAlignment="Top" />
+        
+        <StackPanel Grid.Row="3"
+                    VerticalAlignment="Bottom"
+                    Background="#FF004185">
+            <TextBlock Text="This sample brought to you by:"
+                       FontSize="24"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       Margin="0,8" />
+            
+            <TextBlock Text="Laurent Bugnion"
+                       Foreground="White"
+                       FontFamily="Segoe UI Semibold"
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       Margin="0" />
+            
+            <TextBlock Text="Cloud Developer Advocate"
+                       Foreground="White"
+                       FontFamily="Segoe UI Semibold"
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center"
+                       FontSize="19"
+                       Margin="0" />
+            
+            <TextBlock Text="LBugnion@microsoft.com | LBugnion"
+                       Foreground="White"
+                       FontSize="14"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,8" />
+            
+            <Image Source="Assets/MS Logo Small.png"
+                   Stretch="None" />
+        </StackPanel>
+    </Grid>
 </Page>

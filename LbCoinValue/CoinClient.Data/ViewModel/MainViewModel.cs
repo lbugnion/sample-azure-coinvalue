@@ -1,6 +1,7 @@
 ﻿using CoinClient.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using System;
 
 namespace CoinClient.ViewModel
 {
@@ -11,6 +12,7 @@ namespace CoinClient.ViewModel
         private bool _isDownTrendVsible;
         private bool _isFlatTrendVsible = true;
         private bool _isUpTrendVsible;
+        private string _errorMessage;
         private RelayCommand _refreshCommand;
         private ICoinService _service;
 
@@ -77,6 +79,18 @@ namespace CoinClient.ViewModel
             }
         }
 
+        public string ErrorMessage
+        {
+            get
+            {
+                return _errorMessage;
+            }
+            set
+            {
+                Set(ref _errorMessage, value);
+            }
+        }
+
         public RelayCommand RefreshCommand
         {
             get
@@ -86,13 +100,27 @@ namespace CoinClient.ViewModel
                     async () =>
                     {
                         IsBusy = true;
-                        var trend = await _service.GetTrend();
 
-                        CurrentCoinValue = trend.CurrentValue;
+                        try
+                        {
+                            var trend = await _service.GetTrend();
 
-                        IsUpTrendVisible = trend.Trend > 0;
-                        IsFlatTrendVisible = trend.Trend == 0;
-                        IsDownTrendVisible = trend.Trend < 0;
+                            CurrentCoinValue = trend.CurrentValue;
+
+                            IsUpTrendVisible = trend.Trend > 0;
+                            IsFlatTrendVisible = trend.Trend == 0;
+                            IsDownTrendVisible = trend.Trend < 0;
+                            ErrorMessage = string.Empty;
+                        }
+                        catch (Exception ex)
+                        {
+                            CurrentCoinValue = 0;
+                            IsUpTrendVisible = false;
+                            IsFlatTrendVisible = false;
+                            IsDownTrendVisible = false;
+                            ErrorMessage = ex.Message;
+                        }
+
                         IsBusy = false;
                     },
                     () => !IsBusy));
