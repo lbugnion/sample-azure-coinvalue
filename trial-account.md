@@ -12,21 +12,21 @@ You can use outlook.com email addresses as MSA. To create a new email address, a
 
 Then follow the steps:
 
-	1. In the InPrivate browser window, navigate to the [Outlook start page](http://outlook.com).
+1. In the InPrivate browser window, navigate to the [Outlook start page](http://outlook.com).
 
-	2. Select Create Account
+2. Select Create Account
 
-	3. Fill the information. You will need to select a unique email address. Make sure to write down the user name and password that you entered.
+3. Fill the information. You will need to select a unique email address. Make sure to write down the user name and password that you entered.
 
-    4. Click on Create.
+4. Click on Create.
 
 ## 2. Creating the Azure account
 
 Now that you have a Microsoft account, we will use this to create the Azure account. To do this, follow the steps:
 
-	1. Head to [the Azure Portal](https://portal.azure.com).
+1. Head to [the Azure Portal](https://portal.azure.com).
 
-	2. Enter the Microsoft account user name and password. Note: If you are already logged into your MSA in the same browser window, you won't have to enter your password again.
+2. Enter the Microsoft account user name and password. Note: If you are already logged into your MSA in the same browser window, you won't have to enter your password again.
 
 Now, you have the possibility to take a tour to get to know Azure better, or you can just get started.
 
@@ -40,33 +40,33 @@ Depending on the type of resource that you want to create, the starting point wi
 
 On the left hand side of the portal, you will see a choice of services. We will now create a new resource group to manage the resources that the application requires. To do this, follow the steps:
 
-	1. Locate the Resource group menu and select it.
+1. Locate the Resource group menu and select it.
 
 ![Resource group menu](./Doc/2017-09-04_23-53-58.png)
 
 >**Note:** If you see only the icons in the left menu, you can expand it by using the "hamburger" menu on top of the icon list (![Hamburger menu](./Doc/2017-09-04_23-57-17.png))
 
-    2. Select the Add button on the top left corner.
+2. Select the Add button on the top left corner.
 
 ![Add a resource group](./Doc/2017-09-04_23-59-30.png)
 
-    3. If you already have a subscription, you can jump to step 3.3. Otherwise, you should see the image below. Click on the link titled "Sign up for a new subscription".
+3. If you already have a subscription, you can jump to step 3.3. Otherwise, you should see the image below. Click on the link titled "Sign up for a new subscription".
 
 ![Sign up for a new subscription](./Doc/2017-09-04_23-25-39.png)
 
 ### 3.2 Creating the subscription
 
-    1. Clicking on the link opens a new window. Make sure that you are logged in with the email account that you want to use. The email account is listed in the top right corner.
+1. Clicking on the link opens a new window. Make sure that you are logged in with the email account that you want to use. The email account is listed in the top right corner.
 
-    2. Fill up the "About you" form and click on Next.
+2. Fill up the "About you" form and click on Next.
 
-    3. Fill up the "Identity verification by phone form" and click on "Send Message". This will send a text to your mobile phone.
+3. Fill up the "Identity verification by phone form" and click on "Send Message". This will send a text to your mobile phone.
 
-    4. Enter the code that you just received in the corresponding field and click on "Verify code". If you have not received a code, you can click the "I did not receive a code" button to get a new one.
+4. Enter the code that you just received in the corresponding field and click on "Verify code". If you have not received a code, you can click the "I did not receive a code" button to get a new one.
 
-    5. Fill up the "Identity verification by card" form. Note that you will NOT get billed. This is purely to make sure that your identity is correct, and to avoid fraudulous accounts.
+5. Fill up the "Identity verification by card" form. Note that you will NOT get billed. This is purely to make sure that your identity is correct, and to avoid fraudulous accounts.
 
-    6. After your card has been successfully verified, agree to the subscription agreement, offer details, and privacy statement and click on Sign up.
+6. After your card has been successfully verified, agree to the subscription agreement, offer details, and privacy statement and click on Sign up.
 
 After a short wait, your subscription is ready, and you can take a tour, check some tutorials or return to the account creation which is waiting for you in the previous browser window. Once you are done, navigate back [to the Azure Portal](https://portal.azure.com).
 
@@ -74,12 +74,12 @@ After a short wait, your subscription is ready, and you can take a tour, check s
 
 If you have followed the steps under 3.2 above, and you created a new subscription, you will be back in the Azure Portal. Again, click on the Resource Group menu, and then on the Add button.
 
-    1. In the Resource Group blade, enter the Resource group name.
+1. In the Resource Group blade, enter the Resource group name.
 
-    2. Select the subscription you want to use. If you just created a free subscription, it should be preselected in the combo box.
+2. Select the subscription you want to use. If you just created a free subscription, it should be preselected in the combo box.
 
-    3. Select the location for the resource group. You can select any of the multiple Azure datacenters around the globe.
+3. Select the location for the resource group. You can select any of the multiple Azure datacenters around the globe.
 
-    4. Click on the Create button at the bottom.
+4. Click on the Create button at the bottom.
 
 ![Creating the resource group](./Doc/2017-09-05_00-15-52.png)
