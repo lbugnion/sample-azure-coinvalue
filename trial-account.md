@@ -12,7 +12,7 @@ You can use outlook.com email addresses as MSA. To create a new email address, a
 
 Then follow the steps:
 
-1. In the InPrivate browser window, navigate to the [Outlook start page](http://outlook.com).
+1. In the InPrivate browser window, navigate to the Outlook page at <http://outlook.com>.
 
 2. Select Create Account
 
@@ -24,7 +24,7 @@ Then follow the steps:
 
 Now that you have a Microsoft account, we will use this to create the Azure account. To do this, follow the steps:
 
-1. Head to [the Azure Portal](https://portal.azure.com).
+1. Head to the Azure Portal at <https://portal.azure.com>.
 
 2. Enter the Microsoft account user name and password. Note: If you are already logged into your MSA in the same browser window, you won't have to enter your password again.
 
@@ -64,7 +64,7 @@ On the left hand side of the portal, you will see a choice of services. We will 
 
 4. Enter the code that you just received in the corresponding field and click on "Verify code". If you have not received a code, you can click the "I did not receive a code" button to get a new one.
 
-5. Fill up the "Identity verification by card" form. Note that you will NOT get billed. This is purely to make sure that your identity is correct, and to avoid fraudulous accounts.
+5. Fill up the "Identity verification by card" form. Note that **you will NOT get billed**. This is purely to make sure that your identity is correct, and to avoid fraudulous accounts.
 
 6. After your card has been successfully verified, agree to the subscription agreement, offer details, and privacy statement and click on Sign up.
 
@@ -72,14 +72,14 @@ After a short wait, your subscription is ready, and you can take a tour, check s
 
 ### 3.3 Finishing to create the resource group
 
-If you have followed the steps under 3.2 above, and you created a new subscription, you will be back in the Azure Portal. Again, click on the Resource Group menu, and then on the Add button.
+If you have followed the steps under 3.2 above, and you created a new subscription, you will be back in the Azure Portal. Again, click on the "Resource Group" menu, and then on the Add button.
 
-1. In the Resource Group blade, enter the Resource group name.
+1. In the "Resource Group" blade, enter the new Resource group name.
 
 2. Select the subscription you want to use. If you just created a free subscription, it should be preselected in the combo box.
 
 3. Select the location for the resource group. You can select any of the multiple Azure datacenters around the globe.
 
-4. Click on the Create button at the bottom.
+4. Click on the "Create" button at the bottom.
 
 ![Creating the resource group](./Doc/2017-09-05_00-15-52.png)
