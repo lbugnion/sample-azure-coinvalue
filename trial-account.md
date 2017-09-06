@@ -1,4 +1,4 @@
-# Creating a trial account and a resource group in Azure
+# Creating a trial account and a storage account in Azure
 
 In order to try this sample, you will need an Azure subscription (which can be a free trial). This walkthrough will guide you step-by-step to create an Azure account and create a new resource group.
 
@@ -36,19 +36,19 @@ At this point, you can already explore the portal, but if you want to create a r
 
 Depending on the type of resource that you want to create, the starting point will be slightly different but the process of creating your subscription is the same. In this article, I will describe how to create a storage account but you can also create a trial subscription when you create other resources.
 
-### 3.1 Creating the resource group
+### 3.1 Creating the storage account
 
 On the left hand side of the portal, you will see a choice of services. We will now create a new resource group to manage the resources that the application requires. To do this, follow the steps:
 
-1. Locate the Resource group menu and select it.
+1. Locate the "Storage account" menu and select it.
 
-![Resource group menu](./Doc/2017-09-04_23-53-58.png)
+![Storage account menu](./Doc/2017-08-31_13-49-28.png)
 
 >**Note:** If you see only the icons in the left menu, you can expand it by using the "hamburger" menu on top of the icon list (![Hamburger menu](./Doc/2017-09-04_23-57-17.png))
 
 2. Select the Add button on the top left corner.
 
-![Add a resource group](./Doc/2017-09-04_23-59-30.png)
+![Add a resource group](./Doc/2017-09-06_11-17-14.png)
 
 3. If you already have a subscription, you can jump to step 3.3. Otherwise, you should see the image below. Click on the link titled "Sign up for a new subscription".
 
@@ -70,16 +70,20 @@ On the left hand side of the portal, you will see a choice of services. We will 
 
 After a short wait, your subscription is ready, and you can take a tour, check some tutorials or return to the account creation which is waiting for you in the previous browser window. Once you are done, navigate back [to the Azure Portal](https://portal.azure.com).
 
-### 3.3 Finishing to create the resource group
+### 3.3 Finishing to create the storage account
 
-If you have followed the steps under 3.2 above, and you created a new subscription, you will be back in the Azure Portal. Again, click on the "Resource Group" menu, and then on the Add button.
+If you have followed the steps under 3.2 above, and you created a new subscription, you will be back in the Azure Portal. Again, click on the "Storage Account" menu, and then on the Add button. Most of the values should be prepopulated.
 
-1. In the "Resource Group" blade, enter the new Resource group name.
+1. In the "Storage Account" blade, enter the new account name. For example here I selected coinvalue. Please note that the storage account name should be between 3 and 24 characters, and only lowercase letters and/or numbers.
 
-2. Select the subscription you want to use. If you just created a free subscription, it should be preselected in the combo box.
+2. Select the subscription you want to use. If you just created a free subscription, it should be available in the combo box.
 
-3. Select the location for the resource group. You can select any of the multiple Azure datacenters around the globe.
+![Creating the storage account](./Doc/2017-09-06_11-22-17.png)
 
-4. Click on the "Create" button at the bottom.
+3. Enter a Resource group name. This will be where all the resources needed by your application will be grouped. This makes it easier to find resources.
 
-![Creating the resource group](./Doc/2017-09-05_00-15-52.png)
+4. Select the location for the resource group. You can select any of the multiple Azure datacenters around the globe.
+
+5. Click on the "Create" button at the bottom.
+
+![Finishing to create the storage account](./Doc/2017-09-06_11-24-55.png)
