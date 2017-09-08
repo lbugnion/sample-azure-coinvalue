@@ -6,7 +6,7 @@ In order to execute this sample, you need to deploy it to Azure. If you don't ha
 
 Once your subscription is active, and you cloned and checked out this repository locally, open the solution file at LbCoinValue\LbCoinValue.sln.
 
-![Projects and solution](./Pics/readme/2017-09-05_10-09-26.png)
+![Projects and solution](./Pics/publishing/2017-09-05_10-09-26.png)
 
 The solution consists of 5 projects:
 
@@ -33,17 +33,17 @@ To find the Connection string, we will use a very convenient tool called the Mic
 
 1. In the Microsoft Azure Storage Explorer, make sure that you are logged with the account that you want to use. Then navigate to the Storage account that you want to use (if you don't have a Storage account yet, [follow these steps](https://github.com/lbugnion/sample-azure-general/blob/master/trial-account.md)).
 
-![Selecting the Storage account](./Pics/readme/2017-09-06_17-28-24.png)
+![Selecting the Storage account](./Pics/publishing/2017-09-06_17-28-24.png)
 
 2. With the Storage account selected, check the Properties tab at the bottom of the window. One of the properties is named "Primary Connection String".
 
-![Properties tab](./Pics/readme/2017-09-06_17-30-39.png)
+![Properties tab](./Pics/publishing/2017-09-06_17-30-39.png)
 
 3. Copy the value of the Primary Connection String and then switch to Visual Studio/
 
 4. Open the file named "CoinValueSaver.cs" in the LbCoinValue solution.
 
-![Solution and Projects](./Pics/readme/2017-09-06_17-32-51.png)
+![Solution and Projects](./Pics/publishing/2017-09-06_17-32-51.png)
 
 5. Replace the value of the ConnectionString constant in the code, from "[ENTER YOUR CONNECTION STRING HERE]" to the value that you just copied from the Microsoft Azure Storage Explorer.
 
@@ -59,29 +59,29 @@ To deploy to Azure, follow the steps:
 
 2. In the Publish window, select Azure Function App, and Create New. Then press the Publish button.
 
-![Publish](./Pics/readme/2017-09-05_10-45-08.png)
+![Publish](./Pics/publishing/2017-09-05_10-45-08.png)
 
 3. In the Create App Service window, check if you are already logged in with the correct account (top right). If that is the case, you can jump to step 9 below.
 
 4. Alternatively, add your account by selecting the corresponding choice on the top right.
 
-![Account selection](./Pics/readme/2017-09-05_10-52-49.png)
+![Account selection](./Pics/publishing/2017-09-05_10-52-49.png)
 
 5. In the window titled "Sign in to your account", select "Use another account".
 
-![Sign in to your account](./Pics/readme/2017-09-05_11-00-32.png)
+![Sign in to your account](./Pics/publishing/2017-09-05_11-00-32.png)
 
 6. Enter the username for your Microsoft account. For instance, this can be an outlook.com email address. For more details, see [Creating a trial account and a resource group in Azure](https://github.com/lbugnion/sample-azure-general/blob/master/trial-account.md).
 
 7. Depending on your account type, you can either enter the password in the same window, or you will be redirected to a different window.
 
-![Signing in](./Pics/readme/2017-09-05_11-11-55.png)
+![Signing in](./Pics/publishing/2017-09-05_11-11-55.png)
 
-![Entering password](./Pics/readme/2017-09-05_11-13-34.png)
+![Entering password](./Pics/publishing/2017-09-05_11-13-34.png)
 
 8. After signing in, you will be back to the "Create App Service" window and the values should be pre-populated. You can select [the Resource Group that you created earlier](https://github.com/lbugnion/sample-azure-general/blob/master/trial-account.md).
 
-![Create App Service](./Pics/readme/2017-09-06_17-35-57.png)
+![Create App Service](./Pics/publishing/2017-09-06_17-35-57.png)
 
 9. Modify the App Name to suit your needs, for example CoinValue.
 
@@ -148,15 +148,15 @@ Now you can run the application in the Android emulator with these steps:
 
 1. In the Solution explorer, right click on the project named CoinClient.Android, and select Set as Startup Project.
 
-![Android as Startup project](./Pics/readme/2017-09-06_21-33-05.png)
+![Android as Startup project](./Pics/publishing/2017-09-06_21-33-05.png)
 
 2. On top of the window, make sure that the correct Android emulator is selected.
 
-![Emulator configuration](./Pics/readme/2017-09-06_21-38-09.png)
+![Emulator configuration](./Pics/publishing/2017-09-06_21-38-09.png)
 
 3. Press F5 to debug, or Ctrl-F5 to run the application in the emulator. Then press the Refresh button.
 
-![Application in Android emulator](./Pics/readme/2017-09-06_21-44-33.png)
+![Application in Android emulator](./Pics/publishing/2017-09-06_21-44-33.png)
 
 ### Running the Windows client
 
@@ -175,10 +175,10 @@ Now you can run the application, for example on the Local Machine, with the foll
 
 2. On top of the window, make sure that x86, CoinClient.Uwp (Universal Windows) and Local Machine is selected.
 
-![Settings for UWP](./Pics/readme/2017-09-08_08-59-03.png)
+![Settings for UWP](./Pics/publishing/2017-09-08_08-59-03.png)
 
 3. Press F5 to debug, or Ctrl-F5 to run the application in the emulator. Then press the Refresh button.
 
-![Application in Universal Windows](./Pics/readme/2017-09-08_09-28-40.png)
+![Application in Universal Windows](./Pics/publishing/2017-09-08_09-28-40.png)
 
 
