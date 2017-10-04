@@ -72,6 +72,7 @@
         
         <TextBlock Text="{Binding ErrorMessage}"
                    HorizontalAlignment="Center"
+                   TextWrapping="WrapWholeWords"
                    FontSize="20"
                    Grid.Row="2"
                    Foreground="Red"
