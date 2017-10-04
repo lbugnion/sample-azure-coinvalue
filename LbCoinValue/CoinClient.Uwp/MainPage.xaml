@@ -57,9 +57,9 @@
 
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
-                    Margin="118,35.667,118,0"
                     Grid.Row="1"
-                    VerticalAlignment="Top">
+                    VerticalAlignment="Top"
+                    Margin="0,35,0,0">
             <TextBlock HorizontalAlignment="Center"
                        FontSize="36"
                        Text="Value:"
