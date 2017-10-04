@@ -41,6 +41,28 @@ namespace CoinClient
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f040001
+			public const int black = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int msblue = 2130968578;
+			
+			// aapt resource value: 0x7f040000
+			public const int white = 2130968576;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
@@ -52,6 +74,12 @@ namespace CoinClient
 			
 			// aapt resource value: 0x7f020002
 			public const int ArrowUp = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int Icon = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int MSLogoSmall = 2130837508;
 			
 			static Drawable()
 			{
@@ -66,14 +94,20 @@ namespace CoinClient
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int ArrowImage = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int ArrowImage = 2131099648;
 			
-			// aapt resource value: 0x7f050001
-			public const int RefreshButton = 2131034113;
+			// aapt resource value: 0x7f060002
+			public const int BottomPanel = 2131099650;
 			
-			// aapt resource value: 0x7f050002
-			public const int ValueLabel = 2131034114;
+			// aapt resource value: 0x7f060003
+			public const int RefreshButton = 2131099651;
+			
+			// aapt resource value: 0x7f060001
+			public const int ValueLabel = 2131099649;
+			
+			// aapt resource value: 0x7f060004
+			public const int imageView2 = 2131099652;
 			
 			static Id()
 			{
@@ -104,8 +138,8 @@ namespace CoinClient
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int app_name = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int app_name = 2131034112;
 			
 			static String()
 			{
