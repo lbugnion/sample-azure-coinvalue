@@ -1,5 +1,6 @@
 ﻿using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Push;
+using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +10,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -79,24 +81,33 @@ namespace CoinClient.Uwp
                 // This should come before MobileCenter.Start() is called
                 Push.PushNotificationReceived += (sender, e2) => 
                 {
-                    // Add the notification message and title to the message
-                    var summary = $"Push notification received:"
-                        + $"\n\tNotification title: {e2.Title}" 
-                        + $"\n\tMessage: {e2.Message}";
-
-                    // If there is custom data associated with the notification,
-                    // print the entries
-                    if (e2.CustomData != null)
+                    var content = new ToastContent()
                     {
-                        summary += "\n\tCustom data:\n";
-                        foreach (var key in e2.CustomData.Keys)
-                        {
-                            summary += $"\t\t{key} : {e2.CustomData[key]}\n";
-                        }
-                    }
+                        Launch = "app-defined-string",
 
-                    // Send the notification summary to debug output
-                    System.Diagnostics.Debug.WriteLine(summary);
+                        Visual = new ToastVisual()
+                        {
+                            BindingGeneric = new ToastBindingGeneric
+                            {
+                                Children =
+                                {
+                                    new AdaptiveText()
+                                    {
+                                        Text = e2.Title,
+                                        HintMaxLines = 1
+                                    },
+
+                                    new AdaptiveText()
+                                    {
+                                        Text = e2.Message
+                                    },
+                                }
+                            }
+                        }
+                    };
+
+                    var toast = new ToastNotification(content.GetXml());
+                    ToastNotificationManager.CreateToastNotifier().Show(toast);
                 };
             }
         }
