@@ -24,24 +24,22 @@ namespace CoinClient
             // This should come before MobileCenter.Start() is called
             Push.PushNotificationReceived += (sender, e) => 
             {
-                // Add the notification message and title to the message
-                var summary = $"Push notification received:"
-                    + $"\n\tNotification title: {e.Title}" 
-                    + $"\n\tMessage: {e.Message}";
+                // Instantiate the builder and set notification elements:
+                var builder = new Notification.Builder(this)
+                    .SetContentTitle(e.Title)
+                    .SetContentText(e.Message)
+                    .SetSmallIcon(Resource.Drawable.notification_icon);
 
-                // If there is custom data associated with the notification,
-                // print the entries
-                if (e.CustomData != null)
-                {
-                    summary += "\n\tCustom data:\n";
-                    foreach (var key in e.CustomData.Keys)
-                    {
-                        summary += $"\t\t{key} : {e.CustomData[key]}\n";
-                    }
-                }
+                // Build the notification:
+                Notification notification = builder.Build();
 
-                // Send the notification summary to debug output
-                System.Diagnostics.Debug.WriteLine(summary);
+                // Get the notification manager:
+                NotificationManager notificationManager
+                    = GetSystemService(NotificationService) as NotificationManager;
+
+                // Publish the notification:
+                const int notificationId = 0;
+                notificationManager.Notify(notificationId, notification);
             };
 
             MobileCenter.Start("585a1865-5171-45b5-9a5e-40923798232d", typeof(Push));
