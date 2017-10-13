@@ -13,9 +13,10 @@ namespace LbCoinValue
 {
     public static class CoinValueSaver
     {
-        public const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=lbhackfest;AccountKey=PMYwcvXDTWcnoT3G4XbL4rLhLb2SIDRDOVCvmyP3uA08MXWNGNch86ozxeHuASz8Ket0TEmcqhNoopfIT1T7qw==;BlobEndpoint=https://lbhackfest.blob.core.windows.net/;QueueEndpoint=https://lbhackfest.queue.core.windows.net/;TableEndpoint=https://lbhackfest.table.core.windows.net/;FileEndpoint=https://lbhackfest.file.core.windows.net/;";
+        public const string ConnectionString = "CONNECTION STRING HERE";
         public const string TableName = "coins";
-        private const string Url = "https://coinmarketcap-nexuist.rhcloud.com/api/btc";
+        private const string Url = "https://api.coinmarketcap.com/v1/ticker/";
+        private const string Symbol = "btc";
 
         [FunctionName("CoinValueSaver")]
         public static async Task Run([TimerTrigger("0 0 */1 * * *")]TimerInfo myTimer, TraceWriter log)
@@ -34,14 +35,28 @@ namespace LbCoinValue
             // Get coin value (JSON)
             var client = new HttpClient();
             var json = await client.GetStringAsync(Url);
-            var j = JObject.Parse(json);
 
-            var price = j.GetValue("price")
-                .ToObject<Dictionary<string, double>>()
-                .FirstOrDefault(p => p.Key == "usd")
-                .Value;
+            var price = 0.0;
 
-            if (price == 0)
+            try
+            {
+                var array = JArray.Parse(json);
+
+                var priceString = array.Children<JObject>()
+                    .FirstOrDefault(c => c.Property("symbol").Value.ToString().ToLower() == Symbol)?
+                    .Property("price_usd").Value.ToString();
+
+                if (priceString != null)
+                {
+                    double.TryParse(priceString, out price);
+                }
+            }
+            catch
+            {
+                // Do nothing here for demo purposes
+            }
+
+            if (price < 0.1)
             {
                 log.Info("Something went wrong");
                 return; // Do some logging here
@@ -49,7 +64,7 @@ namespace LbCoinValue
 
             var coin = new CoinEntity
             {
-                Symbol = j.GetValue("symbol").ToString(),
+                Symbol = Symbol,
                 TimeOfReading = DateTime.Now,
                 RowKey = "row" + DateTime.Now.Ticks,
                 PartitionKey = "partition",
