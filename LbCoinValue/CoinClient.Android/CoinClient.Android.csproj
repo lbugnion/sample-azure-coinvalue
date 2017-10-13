@@ -133,7 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
+    <GoogleServicesJson Include="google-services.json" />
     <None Include="packages.config" />
+    <ProguardConfiguration Include="proguard.cfg" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
