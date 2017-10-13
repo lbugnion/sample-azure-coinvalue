@@ -75,9 +75,6 @@ namespace CoinClient.Uwp
                 // Ensure the current window is active
                 Window.Current.Activate();
 
-                MobileCenter.Start("f93448a8-9f34-46ea-86f9-f90e436f9504", typeof(Push));
-                Push.CheckLaunchedFromNotification(e);
-
                 // This should come before MobileCenter.Start() is called
                 Push.PushNotificationReceived += (sender, e2) => 
                 {
@@ -109,6 +106,9 @@ namespace CoinClient.Uwp
                     var toast = new ToastNotification(content.GetXml());
                     ToastNotificationManager.CreateToastNotifier().Show(toast);
                 };
+
+                MobileCenter.Start("f93448a8-9f34-46ea-86f9-f90e436f9504", typeof(Push));
+                Push.CheckLaunchedFromNotification(e);
             }
         }
 
