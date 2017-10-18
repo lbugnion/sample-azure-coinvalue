@@ -20,7 +20,8 @@ namespace LbCoinValue
             // See https://codehollow.com/2017/02/azure-functions-time-trigger-cron-cheat-sheet/
 
             log.Info($"CoinValueSaver executed at: {DateTime.Now}");
-
         }
     }
+
+
 }
