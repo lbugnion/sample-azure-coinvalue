@@ -20,4 +20,5 @@ You can find the following content related to this sample:
 * [Building the Function application](building-function.md)
 * [Building the client data access layer](building-data.md)
 * [Building the Xamarin.Android client application](building-android.md)
+* [Building the Xamarin.iOS client application](building-ios.md)
 * [Building the Windows Universal application](building-uwp.md)
