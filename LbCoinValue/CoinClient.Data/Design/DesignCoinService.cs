@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using CoinClient.Model;
+﻿using CoinClient.Model;
+using System.Threading.Tasks;
 
 namespace CoinClient.Design
 {
@@ -7,6 +7,7 @@ namespace CoinClient.Design
     {
         private const int OriginalTrend = 1;
         private const double OriginalValue = 345.6;
+
         private CoinTrend _trend;
 
         public Task<CoinTrend> GetTrend()

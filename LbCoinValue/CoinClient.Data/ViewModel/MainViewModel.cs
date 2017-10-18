@@ -8,11 +8,11 @@ namespace CoinClient.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private double _currentCoinValue;
+        private string _errorMessage;
         private bool _isBusy;
         private bool _isDownTrendVsible;
         private bool _isFlatTrendVsible = true;
         private bool _isUpTrendVsible;
-        private string _errorMessage;
         private RelayCommand _refreshCommand;
         private ICoinService _service;
 
@@ -25,6 +25,18 @@ namespace CoinClient.ViewModel
             set
             {
                 Set(ref _currentCoinValue, value);
+            }
+        }
+
+        public string ErrorMessage
+        {
+            get
+            {
+                return _errorMessage;
+            }
+            set
+            {
+                Set(ref _errorMessage, value);
             }
         }
 
@@ -76,18 +88,6 @@ namespace CoinClient.ViewModel
             set
             {
                 Set(ref _isUpTrendVsible, value);
-            }
-        }
-
-        public string ErrorMessage
-        {
-            get
-            {
-                return _errorMessage;
-            }
-            set
-            {
-                Set(ref _errorMessage, value);
             }
         }
 
