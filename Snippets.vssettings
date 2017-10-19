@@ -77,4 +77,31 @@
             };
 </PropertyValue><PropertyValue name="Item7.Position">8</PropertyValue><PropertyValue name="Item8.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item8.ID">C2E7C16C9066424503CB4F559404240F</PropertyValue><PropertyValue name="Item8.Name">MobileCenter.Start</PropertyValue><PropertyValue name="Item8.UseDefaultName">false</PropertyValue><PropertyValue name="Item8.Tab">General</PropertyValue><PropertyValue name="Item8.TabID">General</PropertyValue><PropertyValue name="Item8.OriginalTabID">General</PropertyValue><PropertyValue name="Item8.OriginalTab">General</PropertyValue><PropertyValue name="Item8.RecordType">1</PropertyValue><PropertyValue name="Item8.Data">
             MobileCenter.Start("585a1865-5171-45b5-9a5e-40923798232d", typeof(Push));
-</PropertyValue><PropertyValue name="Item8.Position">9</PropertyValue><PropertyValue name="ItemCount">9</PropertyValue></Category></Category></UserSettings>
+</PropertyValue><PropertyValue name="Item8.Position">9</PropertyValue><PropertyValue name="Item9.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item9.ID">DB55050DD1E22DEF350EFB6EE89B8101</PropertyValue><PropertyValue name="Item9.Name">-- NOTIF -----------------------</PropertyValue><PropertyValue name="Item9.UseDefaultName">false</PropertyValue><PropertyValue name="Item9.Tab">General</PropertyValue><PropertyValue name="Item9.TabID">General</PropertyValue><PropertyValue name="Item9.OriginalTabID">General</PropertyValue><PropertyValue name="Item9.OriginalTab">General</PropertyValue><PropertyValue name="Item9.RecordType">1</PropertyValue><PropertyValue name="Item9.Data">            // Send notification to devices
+            const string uriAndroid = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.Android/push/notifications";
+            const string uriUwp = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.UWP/push/notifications";
+            const string ApiToken = "b19f8321553f324acc49544b5179c44f9e738680";
+</PropertyValue><PropertyValue name="Item9.Position">10</PropertyValue><PropertyValue name="Item10.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item10.ID">DB55050DD1E22DEF350EFB6EE89B8101</PropertyValue><PropertyValue name="Item10.Name">Constants</PropertyValue><PropertyValue name="Item10.UseDefaultName">false</PropertyValue><PropertyValue name="Item10.Tab">General</PropertyValue><PropertyValue name="Item10.TabID">General</PropertyValue><PropertyValue name="Item10.OriginalTabID">General</PropertyValue><PropertyValue name="Item10.OriginalTab">General</PropertyValue><PropertyValue name="Item10.RecordType">1</PropertyValue><PropertyValue name="Item10.Data">            // Send notification to devices
+            const string uriAndroid = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.Android/push/notifications";
+            const string uriUwp = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.UWP/push/notifications";
+            const string ApiToken = "b19f8321553f324acc49544b5179c44f9e738680";
+</PropertyValue><PropertyValue name="Item10.Position">11</PropertyValue><PropertyValue name="Item11.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item11.ID">03A614BAC005AFA9F78D360B8A0FFCAD</PropertyValue><PropertyValue name="Item11.Name">Creating request</PropertyValue><PropertyValue name="Item11.UseDefaultName">false</PropertyValue><PropertyValue name="Item11.Tab">General</PropertyValue><PropertyValue name="Item11.TabID">General</PropertyValue><PropertyValue name="Item11.OriginalTabID">General</PropertyValue><PropertyValue name="Item11.OriginalTab">General</PropertyValue><PropertyValue name="Item11.RecordType">1</PropertyValue><PropertyValue name="Item11.Data">            var notification = $"{{\"notification_content\":{{\"name\":\"CoinValue\",\"title\":\"New value saved\",\"body\": \"The current Bitcoin value is {price} U$\"}}}}";
+
+            var request1 = new HttpRequestMessage()
+            {
+                RequestUri = new Uri(uriAndroid),
+                Method = HttpMethod.Post,
+                Content = new StringContent(
+                    notification, 
+                    Encoding.UTF8, 
+                    "application/json")
+            };
+
+            request1.Headers.Add("X-API-Token", ApiToken);
+</PropertyValue><PropertyValue name="Item11.Position">12</PropertyValue><PropertyValue name="Item12.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item12.ID">7930ED29C711F1DE8FCDE3BFEA64D960</PropertyValue><PropertyValue name="Item12.Name">Sending request</PropertyValue><PropertyValue name="Item12.UseDefaultName">false</PropertyValue><PropertyValue name="Item12.Tab">General</PropertyValue><PropertyValue name="Item12.TabID">General</PropertyValue><PropertyValue name="Item12.OriginalTabID">General</PropertyValue><PropertyValue name="Item12.OriginalTab">General</PropertyValue><PropertyValue name="Item12.RecordType">1</PropertyValue><PropertyValue name="Item12.Data">
+            var response = await client.SendAsync(request1);
+            if (response.StatusCode != System.Net.HttpStatusCode.Accepted)
+            {
+                log.Error("Error posting the push notification to Android");
+            }
+</PropertyValue><PropertyValue name="Item12.Position">13</PropertyValue><PropertyValue name="ItemCount">13</PropertyValue></Category></Category></UserSettings>

@@ -6,7 +6,6 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +22,7 @@ namespace LbCoinValue
         public static async Task Run(
             //[TimerTrigger("*/5 * * * * *")]
             [TimerTrigger("0 0 */1 * * *")]
-            TimerInfo myTimer, 
+            TimerInfo myTimer,
             TraceWriter log)
         {
             // Every hour: 0 0 */1 * * *
@@ -91,8 +90,8 @@ namespace LbCoinValue
                 RequestUri = new Uri(uriAndroid),
                 Method = HttpMethod.Post,
                 Content = new StringContent(
-                    notification, 
-                    Encoding.UTF8, 
+                    notification,
+                    Encoding.UTF8,
                     "application/json")
             };
 
