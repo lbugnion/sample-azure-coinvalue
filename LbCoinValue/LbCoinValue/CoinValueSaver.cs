@@ -6,6 +6,8 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace LbCoinValue
@@ -18,7 +20,11 @@ namespace LbCoinValue
         public const string TableName = "coins";
 
         [FunctionName("CoinValueSaver")]
-        public static async Task Run([TimerTrigger("*/5 * * * * *")]TimerInfo myTimer, TraceWriter log)
+        public static async Task Run(
+            //[TimerTrigger("*/5 * * * * *")]
+            [TimerTrigger("0 0 */1 * * *")]
+            TimerInfo myTimer, 
+            TraceWriter log)
         {
             // Every hour: 0 0 */1 * * *
             // See https://codehollow.com/2017/02/azure-functions-time-trigger-cron-cheat-sheet/
@@ -76,31 +82,46 @@ namespace LbCoinValue
             // Send notification to devices
             const string uriAndroid = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.Android/push/notifications";
             const string uriUwp = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.UWP/push/notifications";
+            const string ApiToken = "b19f8321553f324acc49544b5179c44f9e738680";
 
-            const string notificationTemplate = "{\"notification_content\": "
-                + "{\"name\": \"CoinValue\","
-                + "\"title\":\"{0}\","
-                + "\"body\": \"{1}\"}}";
+            var notification = $"{{\"notification_content\":{{\"name\":\"CoinValue\",\"title\":\"New value saved\",\"body\": \"The current Bitcoin value is {price} U$\"}}}}";
 
-            var notificationJson = string.Format(
-                notificationTemplate,
-                "New value saved",
-                $"The current Bitcoin value is {price} U$");
+            var request1 = new HttpRequestMessage()
+            {
+                RequestUri = new Uri(uriAndroid),
+                Method = HttpMethod.Post,
+                Content = new StringContent(
+                    notification, 
+                    Encoding.UTF8, 
+                    "application/json")
+            };
 
-            //var content = new StringContent(notificationJson);
+            request1.Headers.Add("X-API-Token", ApiToken);
 
-            //var response = await client.PostAsync(uriAndroid, content);
-            //if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            //{
-            //    log.Error("Error posting the push notification to Android");
-            //}
+            var response = await client.SendAsync(request1);
+            if (response.StatusCode != System.Net.HttpStatusCode.Accepted)
+            {
+                log.Error("Error posting the push notification to Android");
+            }
 
-            //response = await client.PostAsync(uriUwp, content);
-            //if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            //{
-            //    log.Error("Error posting the push notification to UWP");
-            //}
+            var request2 = new HttpRequestMessage()
+            {
+                RequestUri = new Uri(uriUwp),
+                Method = HttpMethod.Post,
+                Content = new StringContent(
+                    notification,
+                    Encoding.UTF8,
+                    "application/json")
+            };
+
+            request2.Headers.Add("X-API-Token", ApiToken);
+
+            response = await client.SendAsync(request2);
+
+            if (response.StatusCode != System.Net.HttpStatusCode.Accepted)
+            {
+                log.Error("Error posting the push notification to UWP");
+            }
         }
     }
-
 }
