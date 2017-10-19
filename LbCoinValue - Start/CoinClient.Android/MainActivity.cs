@@ -1,19 +1,19 @@
 ﻿using Android.App;
-using Android.Widget;
 using Android.OS;
-using GalaSoft.MvvmLight.Helpers;
 using CoinClient.ViewModel;
-using System.Collections.Generic;
+using GalaSoft.MvvmLight.Helpers;
 using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Push;
+using System.Collections.Generic;
 
 namespace CoinClient
 {
     [Activity(Label = "Bitcoin watcher", MainLauncher = true, Icon = "@drawable/icon")]
     public partial class MainActivity
     {
-        private MainViewModel Vm => App.Locator.Main;
         private List<Binding> _bindings = new List<Binding>();
+
+        private MainViewModel Vm => App.Locator.Main;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -60,4 +60,3 @@ namespace CoinClient
         }
     }
 }
-

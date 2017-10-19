@@ -7,11 +7,9 @@
              x:Class="CoinClient.Uwp.App"
              RequestedTheme="Light">
 
-
     <Application.Resources>
         <vm:ViewModelLocator x:Key="Locator"
                              d:IsDataSource="True" />
     </Application.Resources>
-
 
 </Application>

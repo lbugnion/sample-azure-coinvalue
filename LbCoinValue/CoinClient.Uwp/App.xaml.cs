@@ -84,8 +84,6 @@ namespace CoinClient.Uwp
                 {
                     var content = new ToastContent()
                     {
-                        Launch = "app-defined-string",
-
                         Visual = new ToastVisual()
                         {
                             BindingGeneric = new ToastBindingGeneric
