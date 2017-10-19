@@ -20,7 +20,7 @@ namespace LbCoinValue
 
         [FunctionName("CoinValueSaver")]
         public static async Task Run(
-            //[TimerTrigger("*/5 * * * * *")]
+            //[TimerTrigger("*/5 * * * * *")] // For debug only, every 5 seconds
             [TimerTrigger("0 0 */1 * * *")]
             TimerInfo myTimer,
             TraceWriter log)

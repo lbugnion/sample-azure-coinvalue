@@ -1,0 +1,192 @@
+<UserSettings><ApplicationIdentity version="15.0"/><ToolsOptions/><Category name="Environment_Group" RegisteredName="Environment_Group"><Category name="Environment_Toolbox" Category="{481999F2-7479-4e03-83D5-BE808BA142DF}" Package="{DA9FB551-C724-11d0-AE1F-00A0C90FFFC3}" RegisteredName="Environment_Toolbox" PackageName="Visual Studio Environment Package"><PropertyValue name="ShowAllTabs">false</PropertyValue><PropertyValue name="Version">1</PropertyValue><PropertyValue name="DeletedTabCount">0</PropertyValue><PropertyValue name="Tab0.ID">{e7f851c8-6267-4794-b0fe-7bcab6dacbb4}-#1071</PropertyValue><PropertyValue name="Tab0.Name">Standard</PropertyValue><PropertyValue name="Tab0.View">0</PropertyValue><PropertyValue name="Tab0.UseDefaultName">true</PropertyValue><PropertyValue name="Tab0.RecordType">4</PropertyValue><PropertyValue name="Tab0.Position">19</PropertyValue><PropertyValue name="TabCount">1</PropertyValue><PropertyValue name="DeletedItemCount">0</PropertyValue><PropertyValue name="Item0.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item0.ID">9EE87924A116880D59445ABF04087ACF</PropertyValue><PropertyValue name="Item0.Name">Constants</PropertyValue><PropertyValue name="Item0.UseDefaultName">false</PropertyValue><PropertyValue name="Item0.Tab">General</PropertyValue><PropertyValue name="Item0.TabID">General</PropertyValue><PropertyValue name="Item0.OriginalTabID">General</PropertyValue><PropertyValue name="Item0.OriginalTab">General</PropertyValue><PropertyValue name="Item0.RecordType">1</PropertyValue><PropertyValue name="Item0.Data">        public const string ConnectionString = "";
+        public const string TableName = "coins";
+        private const string Url = "https://api.coinmarketcap.com/v1/ticker/";
+        private const string Symbol = "btc";
+
+</PropertyValue><PropertyValue name="Item0.Position">1</PropertyValue><PropertyValue name="Item1.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item1.ID">676D4522DCC7E617CEA4CD3D95DB7FC3</PropertyValue><PropertyValue name="Item1.Name">Get table</PropertyValue><PropertyValue name="Item1.UseDefaultName">true</PropertyValue><PropertyValue name="Item1.Tab">General</PropertyValue><PropertyValue name="Item1.TabID">General</PropertyValue><PropertyValue name="Item1.OriginalTabID">General</PropertyValue><PropertyValue name="Item1.OriginalTab">General</PropertyValue><PropertyValue name="Item1.RecordType">1</PropertyValue><PropertyValue name="Item1.Data">
+            // Create account, client and table
+            var account = CloudStorageAccount.Parse(ConnectionString);
+            var tableClient = account.CreateCloudTableClient();
+            var table = tableClient.GetTableReference(TableName);
+            await table.CreateIfNotExistsAsync();
+</PropertyValue><PropertyValue name="Item1.Position">2</PropertyValue><PropertyValue name="Item2.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item2.ID">5142863149529D7F9BC59B5BA9E2B8C5</PropertyValue><PropertyValue name="Item2.Name">Get coin value</PropertyValue><PropertyValue name="Item2.UseDefaultName">true</PropertyValue><PropertyValue name="Item2.Tab">General</PropertyValue><PropertyValue name="Item2.TabID">General</PropertyValue><PropertyValue name="Item2.OriginalTabID">General</PropertyValue><PropertyValue name="Item2.OriginalTab">General</PropertyValue><PropertyValue name="Item2.RecordType">1</PropertyValue><PropertyValue name="Item2.Data">
+            // Get coin value (JSON)
+            var client = new HttpClient();
+            var json = await client.GetStringAsync(Url);
+</PropertyValue><PropertyValue name="Item2.Position">3</PropertyValue><PropertyValue name="Item3.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item3.ID">79D66011DA6B822AF2BD20BEC5B7201E</PropertyValue><PropertyValue name="Item3.Name">Get price</PropertyValue><PropertyValue name="Item3.UseDefaultName">false</PropertyValue><PropertyValue name="Item3.Tab">General</PropertyValue><PropertyValue name="Item3.TabID">General</PropertyValue><PropertyValue name="Item3.OriginalTabID">General</PropertyValue><PropertyValue name="Item3.OriginalTab">General</PropertyValue><PropertyValue name="Item3.RecordType">1</PropertyValue><PropertyValue name="Item3.Data">
+            var price = 0.0;
+
+            try
+            {
+                var array = JArray.Parse(json);
+
+                var priceString = array.Children&lt;JObject&gt;()
+                    .FirstOrDefault(c =&gt; c.Property("symbol").Value.ToString().ToLower() == Symbol)?
+                    .Property("price_usd").Value.ToString();
+
+                if (priceString != null)
+                {
+                    double.TryParse(priceString, out price);
+                }
+            }
+            catch
+            {
+                // Do nothing here for demo purposes
+            }
+
+            if (price &lt; 0.1)
+            {
+                log.Info("Something went wrong");
+                return; // Do some logging here
+            }
+</PropertyValue><PropertyValue name="Item3.Position">4</PropertyValue><PropertyValue name="Item4.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item4.ID">8605366FFBACF7EEE8BEB4B5749E91F1</PropertyValue><PropertyValue name="Item4.Name">Create entity</PropertyValue><PropertyValue name="Item4.UseDefaultName">true</PropertyValue><PropertyValue name="Item4.Tab">General</PropertyValue><PropertyValue name="Item4.TabID">General</PropertyValue><PropertyValue name="Item4.OriginalTabID">General</PropertyValue><PropertyValue name="Item4.OriginalTab">General</PropertyValue><PropertyValue name="Item4.RecordType">1</PropertyValue><PropertyValue name="Item4.Data">
+            var coin = new CoinEntity
+            {
+                Symbol = j.GetValue("symbol").ToString(),
+                TimeOfReading = DateTime.Now,
+                RowKey = "row" + DateTime.Now.Ticks,
+                PartitionKey = "partition",
+                PriceUsd = price
+            };
+</PropertyValue><PropertyValue name="Item4.Position">5</PropertyValue><PropertyValue name="Item5.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item5.ID">34E71A70E0E93FC75C783FE51A523AC1</PropertyValue><PropertyValue name="Item5.Name">Insert</PropertyValue><PropertyValue name="Item5.UseDefaultName">true</PropertyValue><PropertyValue name="Item5.Tab">General</PropertyValue><PropertyValue name="Item5.TabID">General</PropertyValue><PropertyValue name="Item5.OriginalTabID">General</PropertyValue><PropertyValue name="Item5.OriginalTab">General</PropertyValue><PropertyValue name="Item5.RecordType">1</PropertyValue><PropertyValue name="Item5.Data">
+            // Insert new value in table
+            table.Execute(TableOperation.Insert(coin));
+</PropertyValue><PropertyValue name="Item5.Position">6</PropertyValue><PropertyValue name="Item6.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item6.ID">34E71A70E0E93FC75C783FE51A523AC1</PropertyValue><PropertyValue name="Item6.Name">-- DROID -----------------------</PropertyValue><PropertyValue name="Item6.UseDefaultName">false</PropertyValue><PropertyValue name="Item6.Tab">General</PropertyValue><PropertyValue name="Item6.TabID">General</PropertyValue><PropertyValue name="Item6.OriginalTabID">General</PropertyValue><PropertyValue name="Item6.OriginalTab">General</PropertyValue><PropertyValue name="Item6.RecordType">1</PropertyValue><PropertyValue name="Item6.Data">
+            // Insert new value in table
+            table.Execute(TableOperation.Insert(coin));
+</PropertyValue><PropertyValue name="Item6.Position">7</PropertyValue><PropertyValue name="Item7.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item7.ID">3CBCA8286CE4C834B1DF627148BC5FFA</PropertyValue><PropertyValue name="Item7.Name">Push.PusNotificationReceived</PropertyValue><PropertyValue name="Item7.UseDefaultName">false</PropertyValue><PropertyValue name="Item7.Tab">General</PropertyValue><PropertyValue name="Item7.TabID">General</PropertyValue><PropertyValue name="Item7.OriginalTabID">General</PropertyValue><PropertyValue name="Item7.OriginalTab">General</PropertyValue><PropertyValue name="Item7.RecordType">1</PropertyValue><PropertyValue name="Item7.Data">
+            // Notifications
+
+            // This should come before MobileCenter.Start() is called
+            Push.PushNotificationReceived += (sender, e) =&gt; 
+            {
+                // Instantiate the builder and set notification elements:
+                var builder = new Notification.Builder(this)
+                    .SetContentTitle(e.Title)
+                    .SetContentText(e.Message)
+                    .SetSmallIcon(Resource.Drawable.notification_icon);
+
+                // Build the notification:
+                Notification notification = builder.Build();
+
+                // Get the notification manager:
+                NotificationManager notificationManager
+                    = GetSystemService(NotificationService) as NotificationManager;
+
+                // Publish the notification:
+                const int notificationId = 0;
+                notificationManager.Notify(notificationId, notification);
+            };
+</PropertyValue><PropertyValue name="Item7.Position">8</PropertyValue><PropertyValue name="Item8.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item8.ID">C2E7C16C9066424503CB4F559404240F</PropertyValue><PropertyValue name="Item8.Name">MobileCenter.Start</PropertyValue><PropertyValue name="Item8.UseDefaultName">false</PropertyValue><PropertyValue name="Item8.Tab">General</PropertyValue><PropertyValue name="Item8.TabID">General</PropertyValue><PropertyValue name="Item8.OriginalTabID">General</PropertyValue><PropertyValue name="Item8.OriginalTab">General</PropertyValue><PropertyValue name="Item8.RecordType">1</PropertyValue><PropertyValue name="Item8.Data">
+            MobileCenter.Start("585a1865-5171-45b5-9a5e-40923798232d", typeof(Push));
+</PropertyValue><PropertyValue name="Item8.Position">9</PropertyValue><PropertyValue name="Item9.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item9.ID">D1DC9828291009BC66F19241882B1BA8</PropertyValue><PropertyValue name="Item9.Name">-- UWP -------------------------</PropertyValue><PropertyValue name="Item9.UseDefaultName">false</PropertyValue><PropertyValue name="Item9.Tab">General</PropertyValue><PropertyValue name="Item9.TabID">General</PropertyValue><PropertyValue name="Item9.OriginalTabID">General</PropertyValue><PropertyValue name="Item9.OriginalTab">General</PropertyValue><PropertyValue name="Item9.RecordType">1</PropertyValue><PropertyValue name="Item9.Data">
+                // This should come before MobileCenter.Start() is called
+                Push.PushNotificationReceived += (sender, e2) =&gt;
+                {
+                    var content = new ToastContent()
+                    {
+                        Visual = new ToastVisual()
+                        {
+                            BindingGeneric = new ToastBindingGeneric
+                            {
+                                Children =
+                                {
+                                    new AdaptiveText()
+                                    {
+                                        Text = e2.Title,
+                                        HintMaxLines = 1
+                                    },
+
+                                    new AdaptiveText()
+                                    {
+                                        Text = e2.Message
+                                    },
+                                }
+                            }
+                        }
+                    };
+
+                    var toast = new ToastNotification(content.GetXml());
+                    ToastNotificationManager.CreateToastNotifier().Show(toast);
+                };
+</PropertyValue><PropertyValue name="Item9.Position">10</PropertyValue><PropertyValue name="Item10.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item10.ID">D1DC9828291009BC66F19241882B1BA8</PropertyValue><PropertyValue name="Item10.Name">Push.PushNotificationReceived</PropertyValue><PropertyValue name="Item10.UseDefaultName">false</PropertyValue><PropertyValue name="Item10.Tab">General</PropertyValue><PropertyValue name="Item10.TabID">General</PropertyValue><PropertyValue name="Item10.OriginalTabID">General</PropertyValue><PropertyValue name="Item10.OriginalTab">General</PropertyValue><PropertyValue name="Item10.RecordType">1</PropertyValue><PropertyValue name="Item10.Data">
+                // This should come before MobileCenter.Start() is called
+                Push.PushNotificationReceived += (sender, e2) =&gt;
+                {
+                    var content = new ToastContent()
+                    {
+                        Visual = new ToastVisual()
+                        {
+                            BindingGeneric = new ToastBindingGeneric
+                            {
+                                Children =
+                                {
+                                    new AdaptiveText()
+                                    {
+                                        Text = e2.Title,
+                                        HintMaxLines = 1
+                                    },
+
+                                    new AdaptiveText()
+                                    {
+                                        Text = e2.Message
+                                    },
+                                }
+                            }
+                        }
+                    };
+
+                    var toast = new ToastNotification(content.GetXml());
+                    ToastNotificationManager.CreateToastNotifier().Show(toast);
+                };
+</PropertyValue><PropertyValue name="Item10.Position">11</PropertyValue><PropertyValue name="Item11.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item11.ID">15AAE757DDC3A5AE8E02D4EAD11D00E7</PropertyValue><PropertyValue name="Item11.Name">MobileCenter.Start</PropertyValue><PropertyValue name="Item11.UseDefaultName">false</PropertyValue><PropertyValue name="Item11.Tab">General</PropertyValue><PropertyValue name="Item11.TabID">General</PropertyValue><PropertyValue name="Item11.OriginalTabID">General</PropertyValue><PropertyValue name="Item11.OriginalTab">General</PropertyValue><PropertyValue name="Item11.RecordType">1</PropertyValue><PropertyValue name="Item11.Data">
+                MobileCenter.Start("f93448a8-9f34-46ea-86f9-f90e436f9504", typeof(Push));
+                Push.CheckLaunchedFromNotification(e);
+</PropertyValue><PropertyValue name="Item11.Position">12</PropertyValue><PropertyValue name="Item12.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item12.ID">DB55050DD1E22DEF350EFB6EE89B8101</PropertyValue><PropertyValue name="Item12.Name">-- NOTIF -----------------------</PropertyValue><PropertyValue name="Item12.UseDefaultName">false</PropertyValue><PropertyValue name="Item12.Tab">General</PropertyValue><PropertyValue name="Item12.TabID">General</PropertyValue><PropertyValue name="Item12.OriginalTabID">General</PropertyValue><PropertyValue name="Item12.OriginalTab">General</PropertyValue><PropertyValue name="Item12.RecordType">1</PropertyValue><PropertyValue name="Item12.Data">            // Send notification to devices
+            const string uriAndroid = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.Android/push/notifications";
+            const string uriUwp = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.UWP/push/notifications";
+            const string ApiToken = "b19f8321553f324acc49544b5179c44f9e738680";
+</PropertyValue><PropertyValue name="Item12.Position">13</PropertyValue><PropertyValue name="Item13.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item13.ID">47F1C9430DA9BE1C9F075620874D0811</PropertyValue><PropertyValue name="Item13.Name">Constants</PropertyValue><PropertyValue name="Item13.UseDefaultName">false</PropertyValue><PropertyValue name="Item13.Tab">General</PropertyValue><PropertyValue name="Item13.TabID">General</PropertyValue><PropertyValue name="Item13.OriginalTabID">General</PropertyValue><PropertyValue name="Item13.OriginalTab">General</PropertyValue><PropertyValue name="Item13.RecordType">1</PropertyValue><PropertyValue name="Item13.Data">
+            // Send notification to devices
+            const string uriAndroid = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.Android/push/notifications";
+            const string uriUwp = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.UWP/push/notifications";
+            const string ApiToken = "b19f8321553f324acc49544b5179c44f9e738680";
+</PropertyValue><PropertyValue name="Item13.Position">14</PropertyValue><PropertyValue name="Item14.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item14.ID">03A614BAC005AFA9A35A1FCA8A0FFCAD</PropertyValue><PropertyValue name="Item14.Name">Creating request Droid</PropertyValue><PropertyValue name="Item14.UseDefaultName">false</PropertyValue><PropertyValue name="Item14.Tab">General</PropertyValue><PropertyValue name="Item14.TabID">General</PropertyValue><PropertyValue name="Item14.OriginalTabID">General</PropertyValue><PropertyValue name="Item14.OriginalTab">General</PropertyValue><PropertyValue name="Item14.RecordType">1</PropertyValue><PropertyValue name="Item14.Data">
+            var notification = $"{{\"notification_content\":{{\"name\":\"CoinValue\",\"title\":\"New value saved\",\"body\": \"The current Bitcoin value is {price} U$\"}}}}";
+
+            var request1 = new HttpRequestMessage()
+            {
+                RequestUri = new Uri(uriAndroid),
+                Method = HttpMethod.Post,
+                Content = new StringContent(
+                    notification, 
+                    Encoding.UTF8, 
+                    "application/json")
+            };
+
+            request1.Headers.Add("X-API-Token", ApiToken);
+</PropertyValue><PropertyValue name="Item14.Position">15</PropertyValue><PropertyValue name="Item15.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item15.ID">7930ED29C711F1DE8FCDE3BFEA64D960</PropertyValue><PropertyValue name="Item15.Name">Sending request Droid</PropertyValue><PropertyValue name="Item15.UseDefaultName">false</PropertyValue><PropertyValue name="Item15.Tab">General</PropertyValue><PropertyValue name="Item15.TabID">General</PropertyValue><PropertyValue name="Item15.OriginalTabID">General</PropertyValue><PropertyValue name="Item15.OriginalTab">General</PropertyValue><PropertyValue name="Item15.RecordType">1</PropertyValue><PropertyValue name="Item15.Data">
+            var response = await client.SendAsync(request1);
+            if (response.StatusCode != System.Net.HttpStatusCode.Accepted)
+            {
+                log.Error("Error posting the push notification to Android");
+            }
+</PropertyValue><PropertyValue name="Item15.Position">16</PropertyValue><PropertyValue name="Item16.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item16.ID">D2D2789F9BDFD0FF826DA09AF0CA8AF2</PropertyValue><PropertyValue name="Item16.Name">Creating request UWP</PropertyValue><PropertyValue name="Item16.UseDefaultName">false</PropertyValue><PropertyValue name="Item16.Tab">General</PropertyValue><PropertyValue name="Item16.TabID">General</PropertyValue><PropertyValue name="Item16.OriginalTabID">General</PropertyValue><PropertyValue name="Item16.OriginalTab">General</PropertyValue><PropertyValue name="Item16.RecordType">1</PropertyValue><PropertyValue name="Item16.Data">
+            var request2 = new HttpRequestMessage()
+            {
+                RequestUri = new Uri(uriUwp),
+                Method = HttpMethod.Post,
+                Content = new StringContent(
+                    notification,
+                    Encoding.UTF8,
+                    "application/json")
+            };
+
+            request2.Headers.Add("X-API-Token", ApiToken);
+</PropertyValue><PropertyValue name="Item16.Position">17</PropertyValue><PropertyValue name="Item17.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item17.ID">493D49CB8C203B042A14BB4B6880D5BB</PropertyValue><PropertyValue name="Item17.Name">Sending request UWP</PropertyValue><PropertyValue name="Item17.UseDefaultName">false</PropertyValue><PropertyValue name="Item17.Tab">General</PropertyValue><PropertyValue name="Item17.TabID">General</PropertyValue><PropertyValue name="Item17.OriginalTabID">General</PropertyValue><PropertyValue name="Item17.OriginalTab">General</PropertyValue><PropertyValue name="Item17.RecordType">1</PropertyValue><PropertyValue name="Item17.Data">
+            response = await client.SendAsync(request2);
+            if (response.StatusCode != System.Net.HttpStatusCode.Accepted)
+            {
+                log.Error("Error posting the push notification to UWP");
+            }
+</PropertyValue><PropertyValue name="Item17.Position">18</PropertyValue><PropertyValue name="ItemCount">18</PropertyValue></Category></Category></UserSettings>

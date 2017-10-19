@@ -13,7 +13,8 @@
             // Get coin value (JSON)
             var client = new HttpClient();
             var json = await client.GetStringAsync(Url);
-</PropertyValue><PropertyValue name="Item2.Position">3</PropertyValue><PropertyValue name="Item3.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item3.ID">FA29EFA8CFC5506C0195F653D10501EF</PropertyValue><PropertyValue name="Item3.Name">Get price</PropertyValue><PropertyValue name="Item3.UseDefaultName">false</PropertyValue><PropertyValue name="Item3.Tab">General</PropertyValue><PropertyValue name="Item3.TabID">General</PropertyValue><PropertyValue name="Item3.OriginalTabID">General</PropertyValue><PropertyValue name="Item3.OriginalTab">General</PropertyValue><PropertyValue name="Item3.RecordType">1</PropertyValue><PropertyValue name="Item3.Data">            var price = 0.0;
+</PropertyValue><PropertyValue name="Item2.Position">3</PropertyValue><PropertyValue name="Item3.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item3.ID">79D66011DA6B822AF2BD20BEC5B7201E</PropertyValue><PropertyValue name="Item3.Name">Get price</PropertyValue><PropertyValue name="Item3.UseDefaultName">false</PropertyValue><PropertyValue name="Item3.Tab">General</PropertyValue><PropertyValue name="Item3.TabID">General</PropertyValue><PropertyValue name="Item3.OriginalTabID">General</PropertyValue><PropertyValue name="Item3.OriginalTab">General</PropertyValue><PropertyValue name="Item3.RecordType">1</PropertyValue><PropertyValue name="Item3.Data">
+            var price = 0.0;
 
             try
             {
@@ -37,7 +38,8 @@
             {
                 log.Info("Something went wrong");
                 return; // Do some logging here
-            }</PropertyValue><PropertyValue name="Item3.Position">4</PropertyValue><PropertyValue name="Item4.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item4.ID">8605366FFBACF7EEE8BEB4B5749E91F1</PropertyValue><PropertyValue name="Item4.Name">Create entity</PropertyValue><PropertyValue name="Item4.UseDefaultName">true</PropertyValue><PropertyValue name="Item4.Tab">General</PropertyValue><PropertyValue name="Item4.TabID">General</PropertyValue><PropertyValue name="Item4.OriginalTabID">General</PropertyValue><PropertyValue name="Item4.OriginalTab">General</PropertyValue><PropertyValue name="Item4.RecordType">1</PropertyValue><PropertyValue name="Item4.Data">
+            }
+</PropertyValue><PropertyValue name="Item3.Position">4</PropertyValue><PropertyValue name="Item4.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item4.ID">8605366FFBACF7EEE8BEB4B5749E91F1</PropertyValue><PropertyValue name="Item4.Name">Create entity</PropertyValue><PropertyValue name="Item4.UseDefaultName">true</PropertyValue><PropertyValue name="Item4.Tab">General</PropertyValue><PropertyValue name="Item4.TabID">General</PropertyValue><PropertyValue name="Item4.OriginalTabID">General</PropertyValue><PropertyValue name="Item4.OriginalTab">General</PropertyValue><PropertyValue name="Item4.RecordType">1</PropertyValue><PropertyValue name="Item4.Data">
             var coin = new CoinEntity
             {
                 Symbol = j.GetValue("symbol").ToString(),
@@ -77,78 +79,17 @@
             };
 </PropertyValue><PropertyValue name="Item7.Position">8</PropertyValue><PropertyValue name="Item8.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item8.ID">C2E7C16C9066424503CB4F559404240F</PropertyValue><PropertyValue name="Item8.Name">MobileCenter.Start</PropertyValue><PropertyValue name="Item8.UseDefaultName">false</PropertyValue><PropertyValue name="Item8.Tab">General</PropertyValue><PropertyValue name="Item8.TabID">General</PropertyValue><PropertyValue name="Item8.OriginalTabID">General</PropertyValue><PropertyValue name="Item8.OriginalTab">General</PropertyValue><PropertyValue name="Item8.RecordType">1</PropertyValue><PropertyValue name="Item8.Data">
             MobileCenter.Start("585a1865-5171-45b5-9a5e-40923798232d", typeof(Push));
-</PropertyValue><PropertyValue name="Item8.Position">9</PropertyValue><PropertyValue name="Item9.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item9.ID">D1DC9828291009BC66F19241882B1BA8</PropertyValue><PropertyValue name="Item9.Name">-- UWP -------------------------</PropertyValue><PropertyValue name="Item9.UseDefaultName">false</PropertyValue><PropertyValue name="Item9.Tab">General</PropertyValue><PropertyValue name="Item9.TabID">General</PropertyValue><PropertyValue name="Item9.OriginalTabID">General</PropertyValue><PropertyValue name="Item9.OriginalTab">General</PropertyValue><PropertyValue name="Item9.RecordType">1</PropertyValue><PropertyValue name="Item9.Data">
-                // This should come before MobileCenter.Start() is called
-                Push.PushNotificationReceived += (sender, e2) =&gt;
-                {
-                    var content = new ToastContent()
-                    {
-                        Visual = new ToastVisual()
-                        {
-                            BindingGeneric = new ToastBindingGeneric
-                            {
-                                Children =
-                                {
-                                    new AdaptiveText()
-                                    {
-                                        Text = e2.Title,
-                                        HintMaxLines = 1
-                                    },
-
-                                    new AdaptiveText()
-                                    {
-                                        Text = e2.Message
-                                    },
-                                }
-                            }
-                        }
-                    };
-
-                    var toast = new ToastNotification(content.GetXml());
-                    ToastNotificationManager.CreateToastNotifier().Show(toast);
-                };
-</PropertyValue><PropertyValue name="Item9.Position">10</PropertyValue><PropertyValue name="Item10.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item10.ID">D1DC9828291009BC66F19241882B1BA8</PropertyValue><PropertyValue name="Item10.Name">Push.PushNotificationReceived</PropertyValue><PropertyValue name="Item10.UseDefaultName">false</PropertyValue><PropertyValue name="Item10.Tab">General</PropertyValue><PropertyValue name="Item10.TabID">General</PropertyValue><PropertyValue name="Item10.OriginalTabID">General</PropertyValue><PropertyValue name="Item10.OriginalTab">General</PropertyValue><PropertyValue name="Item10.RecordType">1</PropertyValue><PropertyValue name="Item10.Data">
-                // This should come before MobileCenter.Start() is called
-                Push.PushNotificationReceived += (sender, e2) =&gt;
-                {
-                    var content = new ToastContent()
-                    {
-                        Visual = new ToastVisual()
-                        {
-                            BindingGeneric = new ToastBindingGeneric
-                            {
-                                Children =
-                                {
-                                    new AdaptiveText()
-                                    {
-                                        Text = e2.Title,
-                                        HintMaxLines = 1
-                                    },
-
-                                    new AdaptiveText()
-                                    {
-                                        Text = e2.Message
-                                    },
-                                }
-                            }
-                        }
-                    };
-
-                    var toast = new ToastNotification(content.GetXml());
-                    ToastNotificationManager.CreateToastNotifier().Show(toast);
-                };
-</PropertyValue><PropertyValue name="Item10.Position">11</PropertyValue><PropertyValue name="Item11.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item11.ID">15AAE757DDC3A5AE8E02D4EAD11D00E7</PropertyValue><PropertyValue name="Item11.Name">MobileCenter.Start</PropertyValue><PropertyValue name="Item11.UseDefaultName">false</PropertyValue><PropertyValue name="Item11.Tab">General</PropertyValue><PropertyValue name="Item11.TabID">General</PropertyValue><PropertyValue name="Item11.OriginalTabID">General</PropertyValue><PropertyValue name="Item11.OriginalTab">General</PropertyValue><PropertyValue name="Item11.RecordType">1</PropertyValue><PropertyValue name="Item11.Data">
-                MobileCenter.Start("f93448a8-9f34-46ea-86f9-f90e436f9504", typeof(Push));
-                Push.CheckLaunchedFromNotification(e);
-</PropertyValue><PropertyValue name="Item11.Position">12</PropertyValue><PropertyValue name="Item12.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item12.ID">DB55050DD1E22DEF350EFB6EE89B8101</PropertyValue><PropertyValue name="Item12.Name">-- NOTIF -----------------------</PropertyValue><PropertyValue name="Item12.UseDefaultName">false</PropertyValue><PropertyValue name="Item12.Tab">General</PropertyValue><PropertyValue name="Item12.TabID">General</PropertyValue><PropertyValue name="Item12.OriginalTabID">General</PropertyValue><PropertyValue name="Item12.OriginalTab">General</PropertyValue><PropertyValue name="Item12.RecordType">1</PropertyValue><PropertyValue name="Item12.Data">            // Send notification to devices
+</PropertyValue><PropertyValue name="Item8.Position">9</PropertyValue><PropertyValue name="Item9.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item9.ID">DB55050DD1E22DEF350EFB6EE89B8101</PropertyValue><PropertyValue name="Item9.Name">-- NOTIF -----------------------</PropertyValue><PropertyValue name="Item9.UseDefaultName">false</PropertyValue><PropertyValue name="Item9.Tab">General</PropertyValue><PropertyValue name="Item9.TabID">General</PropertyValue><PropertyValue name="Item9.OriginalTabID">General</PropertyValue><PropertyValue name="Item9.OriginalTab">General</PropertyValue><PropertyValue name="Item9.RecordType">1</PropertyValue><PropertyValue name="Item9.Data">            // Send notification to devices
             const string uriAndroid = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.Android/push/notifications";
             const string uriUwp = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.UWP/push/notifications";
             const string ApiToken = "b19f8321553f324acc49544b5179c44f9e738680";
-</PropertyValue><PropertyValue name="Item12.Position">13</PropertyValue><PropertyValue name="Item13.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item13.ID">DB55050DD1E22DEF350EFB6EE89B8101</PropertyValue><PropertyValue name="Item13.Name">Constants</PropertyValue><PropertyValue name="Item13.UseDefaultName">false</PropertyValue><PropertyValue name="Item13.Tab">General</PropertyValue><PropertyValue name="Item13.TabID">General</PropertyValue><PropertyValue name="Item13.OriginalTabID">General</PropertyValue><PropertyValue name="Item13.OriginalTab">General</PropertyValue><PropertyValue name="Item13.RecordType">1</PropertyValue><PropertyValue name="Item13.Data">            // Send notification to devices
+</PropertyValue><PropertyValue name="Item9.Position">10</PropertyValue><PropertyValue name="Item10.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item10.ID">47F1C9430DA9BE1C9F075620874D0811</PropertyValue><PropertyValue name="Item10.Name">Constants</PropertyValue><PropertyValue name="Item10.UseDefaultName">false</PropertyValue><PropertyValue name="Item10.Tab">General</PropertyValue><PropertyValue name="Item10.TabID">General</PropertyValue><PropertyValue name="Item10.OriginalTabID">General</PropertyValue><PropertyValue name="Item10.OriginalTab">General</PropertyValue><PropertyValue name="Item10.RecordType">1</PropertyValue><PropertyValue name="Item10.Data">
+            // Send notification to devices
             const string uriAndroid = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.Android/push/notifications";
             const string uriUwp = "https://api.mobile.azure.com/v0.1/apps/lbugnion/CoinValue.UWP/push/notifications";
             const string ApiToken = "b19f8321553f324acc49544b5179c44f9e738680";
-</PropertyValue><PropertyValue name="Item13.Position">14</PropertyValue><PropertyValue name="Item14.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item14.ID">03A614BAC005AFA9F78D360B8A0FFCAD</PropertyValue><PropertyValue name="Item14.Name">Creating request</PropertyValue><PropertyValue name="Item14.UseDefaultName">false</PropertyValue><PropertyValue name="Item14.Tab">General</PropertyValue><PropertyValue name="Item14.TabID">General</PropertyValue><PropertyValue name="Item14.OriginalTabID">General</PropertyValue><PropertyValue name="Item14.OriginalTab">General</PropertyValue><PropertyValue name="Item14.RecordType">1</PropertyValue><PropertyValue name="Item14.Data">            var notification = $"{{\"notification_content\":{{\"name\":\"CoinValue\",\"title\":\"New value saved\",\"body\": \"The current Bitcoin value is {price} U$\"}}}}";
+</PropertyValue><PropertyValue name="Item10.Position">11</PropertyValue><PropertyValue name="Item11.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item11.ID">03A614BAC005AFA9A35A1FCA8A0FFCAD</PropertyValue><PropertyValue name="Item11.Name">Creating request Droid</PropertyValue><PropertyValue name="Item11.UseDefaultName">false</PropertyValue><PropertyValue name="Item11.Tab">General</PropertyValue><PropertyValue name="Item11.TabID">General</PropertyValue><PropertyValue name="Item11.OriginalTabID">General</PropertyValue><PropertyValue name="Item11.OriginalTab">General</PropertyValue><PropertyValue name="Item11.RecordType">1</PropertyValue><PropertyValue name="Item11.Data">
+            var notification = $"{{\"notification_content\":{{\"name\":\"CoinValue\",\"title\":\"New value saved\",\"body\": \"The current Bitcoin value is {price} U$\"}}}}";
 
             var request1 = new HttpRequestMessage()
             {
@@ -161,10 +102,10 @@
             };
 
             request1.Headers.Add("X-API-Token", ApiToken);
-</PropertyValue><PropertyValue name="Item14.Position">15</PropertyValue><PropertyValue name="Item15.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item15.ID">7930ED29C711F1DE8FCDE3BFEA64D960</PropertyValue><PropertyValue name="Item15.Name">Sending request</PropertyValue><PropertyValue name="Item15.UseDefaultName">false</PropertyValue><PropertyValue name="Item15.Tab">General</PropertyValue><PropertyValue name="Item15.TabID">General</PropertyValue><PropertyValue name="Item15.OriginalTabID">General</PropertyValue><PropertyValue name="Item15.OriginalTab">General</PropertyValue><PropertyValue name="Item15.RecordType">1</PropertyValue><PropertyValue name="Item15.Data">
+</PropertyValue><PropertyValue name="Item11.Position">12</PropertyValue><PropertyValue name="Item12.DataProvider">{0A057BAD-6706-45D2-A800-683A29EC6BA3}</PropertyValue><PropertyValue name="Item12.ID">7930ED29C711F1DE8FCDE3BFEA64D960</PropertyValue><PropertyValue name="Item12.Name">Sending request Droid</PropertyValue><PropertyValue name="Item12.UseDefaultName">false</PropertyValue><PropertyValue name="Item12.Tab">General</PropertyValue><PropertyValue name="Item12.TabID">General</PropertyValue><PropertyValue name="Item12.OriginalTabID">General</PropertyValue><PropertyValue name="Item12.OriginalTab">General</PropertyValue><PropertyValue name="Item12.RecordType">1</PropertyValue><PropertyValue name="Item12.Data">
             var response = await client.SendAsync(request1);
             if (response.StatusCode != System.Net.HttpStatusCode.Accepted)
             {
                 log.Error("Error posting the push notification to Android");
             }
-</PropertyValue><PropertyValue name="Item15.Position">16</PropertyValue><PropertyValue name="ItemCount">16</PropertyValue></Category></Category></UserSettings>
+</PropertyValue><PropertyValue name="Item12.Position">13</PropertyValue><PropertyValue name="ItemCount">13</PropertyValue></Category></Category></UserSettings>
