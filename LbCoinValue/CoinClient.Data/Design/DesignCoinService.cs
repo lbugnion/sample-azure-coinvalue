@@ -10,7 +10,7 @@ namespace CoinClient.Design
 
         private CoinTrend _trend;
 
-        public Task<CoinTrend> GetTrend()
+        public Task<CoinTrend> GetTrend(string symbol)
         {
             var tcs = new TaskCompletionSource<CoinTrend>();
 
@@ -18,12 +18,14 @@ namespace CoinClient.Design
             {
                 _trend = new CoinTrend
                 {
+                    Symbol = symbol,
                     CurrentValue = OriginalValue,
                     Trend = OriginalTrend
                 };
             }
             else
             {
+                _trend.Symbol = symbol;
                 _trend.CurrentValue += 1000;
                 _trend.Trend =
                     _trend.Trend == 0 ? 1

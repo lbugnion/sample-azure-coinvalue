@@ -101,19 +101,28 @@ namespace CoinClient
 		{
 			
 			// aapt resource value: 0x7f070000
-			public const int ArrowImage = 2131165184;
-			
-			// aapt resource value: 0x7f070002
-			public const int BottomPanel = 2131165186;
+			public const int ArrowImageBtc = 2131165184;
 			
 			// aapt resource value: 0x7f070003
-			public const int RefreshButton = 2131165187;
+			public const int ArrowImageEth = 2131165187;
 			
-			// aapt resource value: 0x7f070001
-			public const int ValueLabel = 2131165185;
+			// aapt resource value: 0x7f070005
+			public const int BottomPanel = 2131165189;
+			
+			// aapt resource value: 0x7f070006
+			public const int RefreshButton = 2131165190;
+			
+			// aapt resource value: 0x7f070002
+			public const int ValueLabelBtc = 2131165186;
 			
 			// aapt resource value: 0x7f070004
-			public const int imageView2 = 2131165188;
+			public const int ValueLabelEth = 2131165188;
+			
+			// aapt resource value: 0x7f070001
+			public const int ValuePanelBtc = 2131165185;
+			
+			// aapt resource value: 0x7f070007
+			public const int imageView2 = 2131165191;
 			
 			static Id()
 			{

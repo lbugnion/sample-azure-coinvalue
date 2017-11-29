@@ -14,12 +14,13 @@ namespace CoinClient.Test
             _trend = trend;
         }
 
-        public Task<CoinTrend> GetTrend()
+        public Task<CoinTrend> GetTrend(string symbol)
         {
             var tcs = new TaskCompletionSource<CoinTrend>();
 
             tcs.SetResult(new CoinTrend
             {
+                Symbol = symbol,
                 CurrentValue = _testValue,
                 Trend = _trend
             });

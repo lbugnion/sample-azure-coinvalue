@@ -11,15 +11,21 @@ using System.Threading.Tasks;
 
 namespace LbCoinValue
 {
-    public static class CoinTrendGetter
+    public static class CoinTrendGetterSymbol
     {
         private const int StandardCount = 10;
 
-        [FunctionName("CoinTrendGetter")]
+        [FunctionName("CoinTrendGetterSymbol")]
         public static async Task<HttpResponseMessage> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
+            [HttpTrigger(
+                AuthorizationLevel.Function,
+                "get",
+                Route = "get/symbol/{symbol}")]
+            HttpRequestMessage req,
+            string symbol,
+            TraceWriter log)
         {
-            log.Info($"CoinTrendGetter executed at: {DateTime.Now}");
+            log.Info($"CoinTrendGetter executed at: {DateTime.Now} for {symbol}");
 
             // Create account, client and table
             var account = CloudStorageAccount.Parse(CoinValueSaver.ConnectionString);
@@ -29,7 +35,7 @@ namespace LbCoinValue
 
             // Get the last 10 coin
             var coinsQuery = table.CreateQuery<CoinEntity>()
-                .Where(c => c.Symbol == CoinTrend.SymbolBtc)
+                .Where(c => c.Symbol == symbol)
                 .ToList();
             var count = coinsQuery.Count;
 
@@ -56,6 +62,7 @@ namespace LbCoinValue
                 Stats.CalculateLinearRegression(indexes, coinValues, 0, selectedCount, out rSquared, out yIntercept, out slope);
 
                 // Prepare the result
+                trend.Symbol = symbol;
                 trend.CurrentValue = coinValues.Last();
                 trend.Trend = (slope > 0.05) ? 1 // Positive trend
                     : (slope < -0.05) ? -1       // Negative trend

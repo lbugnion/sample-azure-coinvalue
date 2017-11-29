@@ -4,6 +4,6 @@ namespace CoinClient.Model
 {
     public interface ICoinService
     {
-        Task<CoinTrend> GetTrend();
+        Task<CoinTrend> GetTrend(string symbol);
     }
 }

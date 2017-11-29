@@ -7,24 +7,34 @@ namespace CoinClient.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private double _currentCoinValue;
+        private CoinTrendViewModel _btc = null;
+        private CoinTrendViewModel _eth = null;
         private string _errorMessage;
         private bool _isBusy;
-        private bool _isDownTrendVsible;
-        private bool _isFlatTrendVsible = true;
-        private bool _isUpTrendVsible;
         private RelayCommand _refreshCommand;
         private ICoinService _service;
 
-        public double CurrentCoinValue
+        public CoinTrendViewModel Btc
         {
             get
             {
-                return _currentCoinValue;
+                return _btc;
             }
             set
             {
-                Set(ref _currentCoinValue, value);
+                Set(ref _btc, value);
+            }
+        }
+
+        public CoinTrendViewModel Eth
+        {
+            get
+            {
+                return _eth;
+            }
+            set
+            {
+                Set(ref _eth, value);
             }
         }
 
@@ -55,42 +65,6 @@ namespace CoinClient.ViewModel
             }
         }
 
-        public bool IsDownTrendVisible
-        {
-            get
-            {
-                return _isDownTrendVsible;
-            }
-            set
-            {
-                Set(ref _isDownTrendVsible, value);
-            }
-        }
-
-        public bool IsFlatTrendVisible
-        {
-            get
-            {
-                return _isFlatTrendVsible;
-            }
-            set
-            {
-                Set(ref _isFlatTrendVsible, value);
-            }
-        }
-
-        public bool IsUpTrendVisible
-        {
-            get
-            {
-                return _isUpTrendVsible;
-            }
-            set
-            {
-                Set(ref _isUpTrendVsible, value);
-            }
-        }
-
         public RelayCommand RefreshCommand
         {
             get
@@ -103,21 +77,18 @@ namespace CoinClient.ViewModel
 
                         try
                         {
-                            var trend = await _service.GetTrend();
+                            var btcModel = await _service.GetTrend(CoinTrend.SymbolBtc);
+                            Btc = new CoinTrendViewModel(btcModel);
 
-                            CurrentCoinValue = trend.CurrentValue;
+                            var ethModel = await _service.GetTrend(CoinTrend.SymbolEth);
+                            Eth = new CoinTrendViewModel(ethModel);
 
-                            IsUpTrendVisible = trend.Trend > 0;
-                            IsFlatTrendVisible = trend.Trend == 0;
-                            IsDownTrendVisible = trend.Trend < 0;
                             ErrorMessage = string.Empty;
                         }
                         catch (Exception ex)
                         {
-                            CurrentCoinValue = 0;
-                            IsUpTrendVisible = false;
-                            IsFlatTrendVisible = true;
-                            IsDownTrendVisible = false;
+                            Btc = null;
+                            Eth = null;
                             ErrorMessage = ex.Message;
                         }
 

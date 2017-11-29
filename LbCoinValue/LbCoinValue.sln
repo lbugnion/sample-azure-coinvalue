@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Blend for Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LbCoinValue", "LbCoinValue\LbCoinValue.csproj", "{7DE1E217-964C-45E8-89B2-E5970D7F7DF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LbCoinValue", "LbCoinValue\LbCoinValue.csproj", "{7DE1E217-964C-45E8-89B2-E5970D7F7DF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinClient.Android", "CoinClient.Android\CoinClient.Android.csproj", "{8484851E-884E-479C-B0AE-C7D25773B1EE}"
 EndProject
