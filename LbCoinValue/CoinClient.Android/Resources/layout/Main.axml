@@ -22,7 +22,7 @@
         android:layout_below="@+id/ArrowImageBtc"
         android:layout_centerHorizontal="true">
         <TextView
-            android:text="Value BTC:"
+            android:text="BTC:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp"
@@ -60,7 +60,7 @@
         android:layout_below="@+id/ArrowImageEth"
         android:layout_centerHorizontal="true">
         <TextView
-            android:text="Value ETH:"
+            android:text="ETH:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp"
