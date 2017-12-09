@@ -66,7 +66,7 @@
 
         <StackPanel Grid.Row="1"
                     Style="{StaticResource TextPanelStyle}">
-            <TextBlock Text="Value BTC:"
+            <TextBlock Text="BTC:"
                        Style="{StaticResource ValueTextStyle}"
                        Margin="0,0,10,0" />
 
@@ -97,7 +97,7 @@
 
         <StackPanel Grid.Row="3"
                     Style="{StaticResource TextPanelStyle}">
-            <TextBlock Text="Value ETH:"
+            <TextBlock Text="ETH:"
                        Margin="0,0,10,0"
                        Style="{StaticResource ValueTextStyle}" />
 
