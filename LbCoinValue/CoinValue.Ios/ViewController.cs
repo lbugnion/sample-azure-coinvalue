@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Helpers;
+using System;
 
 using UIKit;
 
@@ -13,6 +14,8 @@ namespace CoinValue.Ios
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+
+            RefreshButton.SetCommand(Application.Locator.Main.RefreshCommand);
         }
 
         public override void DidReceiveMemoryWarning()
