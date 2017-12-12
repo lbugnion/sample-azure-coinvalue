@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,46 +17,97 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="226" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="149" y="642" width="116" height="54"/>
+                                <rect key="frame" x="129.5" y="499" width="116" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Refresh"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC: 0U$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="504" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="20" y="162" width="374" height="42"/>
+                                <rect key="frame" x="16" y="162" width="343" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH: 0U$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="514" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="20" y="354" width="374" height="42"/>
+                                <rect key="frame" x="16" y="354" width="343" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="766" translatesAutoresizingMaskIntoConstraints="NO" image="ArrowFlat.png">
-                                <rect key="frame" x="108" y="55" width="198" height="91"/>
+                                <rect key="frame" x="88.5" y="55" width="198" height="91"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="200" height="100"/>
                                 <constraints>
                                     <constraint id="2688" firstItem="766" firstAttribute="height" constant="91"/>
                                     <constraint id="2689" firstItem="766" firstAttribute="width" constant="198"/>
                                 </constraints>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="825" translatesAutoresizingMaskIntoConstraints="NO" image="ArrowFlat.png">
-                                <rect key="frame" x="107" y="244" width="200" height="90"/>
+                                <rect key="frame" x="87.5" y="244" width="200" height="90"/>
                                 <constraints>
                                     <constraint id="2747" firstItem="825" firstAttribute="height" constant="90"/>
                                     <constraint id="2748" firstItem="825" firstAttribute="width" constant="200"/>
                                 </constraints>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
                             </imageView>
+                            <view contentMode="scaleToFill" id="4801" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="-14" y="583" width="403" height="229"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.25490196078431371" blue="0.52156862745098043" alpha="1"/>
+                                <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This sample brought to you by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5953" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <rect key="frame" x="30" y="10" width="343" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laurent Bugnion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6507" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <rect key="frame" x="30" y="41.5" width="343" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36" weight="semibold"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cloud Developer Advocate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6542" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <rect key="frame" x="30" y="89.5" width="343" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22" weight="semibold"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6713" translatesAutoresizingMaskIntoConstraints="NO" text="LBugnion@microsoft.com | LBugnion">
+                                        <rect key="frame" x="30" y="121" width="343" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint id="5339" firstItem="4801" firstAttribute="height" constant="229"/>
+                                    <constraint id="5954" firstItem="5953" firstAttribute="top" secondItem="4801" secondAttribute="top" constant="10"/>
+                                    <constraint id="5955" firstItem="5953" firstAttribute="leading" secondItem="4801" secondAttribute="leading" constant="30"/>
+                                    <constraint id="5956" firstItem="4801" firstAttribute="trailing" secondItem="5953" secondAttribute="trailing" constant="30"/>
+                                    <constraint id="6508" firstItem="6507" firstAttribute="top" secondItem="5953" secondAttribute="bottom" constant="5"/>
+                                    <constraint id="6509" firstItem="6507" firstAttribute="leading" secondItem="4801" secondAttribute="leading" constant="30"/>
+                                    <constraint id="6510" firstItem="4801" firstAttribute="trailing" secondItem="6507" secondAttribute="trailing" constant="30"/>
+                                    <constraint id="6574" firstItem="6542" firstAttribute="top" secondItem="6507" secondAttribute="bottom" constant="5"/>
+                                    <constraint id="6575" firstItem="6542" firstAttribute="leading" secondItem="4801" secondAttribute="leading" constant="30"/>
+                                    <constraint id="6576" firstItem="4801" firstAttribute="trailing" secondItem="6542" secondAttribute="trailing" constant="30"/>
+                                    <constraint id="6714" firstItem="6713" firstAttribute="top" secondItem="6542" secondAttribute="bottom" constant="5"/>
+                                    <constraint id="6715" firstItem="6713" firstAttribute="leading" secondItem="4801" secondAttribute="leading" constant="30"/>
+                                    <constraint id="6716" firstItem="4801" firstAttribute="trailing" secondItem="6713" secondAttribute="trailing" constant="30"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint id="227" firstItem="226" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
-                            <constraint id="228" firstItem="wfy-db-euE" firstAttribute="top" secondItem="226" secondAttribute="bottom" constant="40"/>
                             <constraint id="507" firstItem="504" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
                             <constraint id="508" firstItem="8bC-Xf-vdC" firstAttribute="trailingMargin" secondItem="504" secondAttribute="trailing"/>
                             <constraint id="515" firstItem="514" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
@@ -64,6 +118,10 @@
                             <constraint id="855" firstItem="514" firstAttribute="top" secondItem="825" secondAttribute="bottom" constant="20"/>
                             <constraint id="2365" firstItem="766" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
                             <constraint id="2366" firstItem="825" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
+                            <constraint id="4802" firstItem="4801" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-30"/>
+                            <constraint id="4803" firstItem="8bC-Xf-vdC" firstAttribute="trailingMargin" secondItem="4801" secondAttribute="trailing" constant="-30"/>
+                            <constraint id="4804" firstItem="wfy-db-euE" firstAttribute="top" secondItem="4801" secondAttribute="bottom"/>
+                            <constraint id="4828" firstItem="4801" firstAttribute="top" secondItem="226" secondAttribute="bottom" constant="30"/>
                         </constraints>
                     </view>
                     <connections>
