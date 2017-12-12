@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace CoinClient
 {
-    [Activity(Label = "Coin watcher", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "CoinValue", MainLauncher = true, Icon = "@drawable/icon")]
     public partial class MainActivity
     {
         private List<Binding> _bindings = new List<Binding>();
