@@ -6,7 +6,8 @@
       "minimum-system-version": "7.0",
       "scale": "2x",
       "size": "0x0",
-      "idiom": "iphone"
+      "idiom": "iphone",
+      "filename": "Launch640x960.png"
     },
     {
       "orientation": "portrait",
@@ -15,7 +16,8 @@
       "subtype": "retina4",
       "scale": "2x",
       "size": "0x0",
-      "idiom": "iphone"
+      "idiom": "iphone",
+      "filename": "Launch640x1136.png"
     },
     {
       "orientation": "portrait",
