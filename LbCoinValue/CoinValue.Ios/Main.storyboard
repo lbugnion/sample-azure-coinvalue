@@ -24,33 +24,54 @@
                                 <state key="normal" title="Refresh"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC: 0U$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="504" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="20" y="89" width="374" height="49"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <rect key="frame" x="20" y="162" width="374" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH: 0U$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="514" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="20" y="178" width="374" height="49"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <rect key="frame" x="20" y="354" width="374" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="766" translatesAutoresizingMaskIntoConstraints="NO" image="ArrowFlat.png">
+                                <rect key="frame" x="108" y="55" width="198" height="91"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="200" height="100"/>
+                                <constraints>
+                                    <constraint id="2688" firstItem="766" firstAttribute="height" constant="91"/>
+                                    <constraint id="2689" firstItem="766" firstAttribute="width" constant="198"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="825" translatesAutoresizingMaskIntoConstraints="NO" image="ArrowFlat.png">
+                                <rect key="frame" x="107" y="244" width="200" height="90"/>
+                                <constraints>
+                                    <constraint id="2747" firstItem="825" firstAttribute="height" constant="90"/>
+                                    <constraint id="2748" firstItem="825" firstAttribute="width" constant="200"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint id="227" firstItem="226" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
                             <constraint id="228" firstItem="wfy-db-euE" firstAttribute="top" secondItem="226" secondAttribute="bottom" constant="40"/>
-                            <constraint id="505" firstItem="504" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="69"/>
                             <constraint id="507" firstItem="504" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
                             <constraint id="508" firstItem="8bC-Xf-vdC" firstAttribute="trailingMargin" secondItem="504" secondAttribute="trailing"/>
                             <constraint id="515" firstItem="514" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
                             <constraint id="516" firstItem="8bC-Xf-vdC" firstAttribute="trailingMargin" secondItem="514" secondAttribute="trailing"/>
-                            <constraint id="517" firstItem="514" firstAttribute="top" secondItem="504" secondAttribute="bottom" constant="40"/>
+                            <constraint id="767" firstItem="766" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="35"/>
+                            <constraint id="801" firstItem="504" firstAttribute="top" secondItem="766" secondAttribute="bottom" constant="16"/>
+                            <constraint id="826" firstItem="825" firstAttribute="top" secondItem="504" secondAttribute="bottom" constant="40"/>
+                            <constraint id="855" firstItem="514" firstAttribute="top" secondItem="825" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2365" firstItem="766" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
+                            <constraint id="2366" firstItem="825" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="RefreshButton" destination="226" id="name-outlet-226"/>
-                        <outlet property="BtcLabel" destination="504" id="name-outlet-504"/>
-                        <outlet property="EthLabel" destination="514" id="name-outlet-514"/>
+                        <outlet property="ValueLabelBtc" destination="504" id="name-outlet-504"/>
+                        <outlet property="ValueLabelEth" destination="514" id="name-outlet-514"/>
+                        <outlet property="ArrowImageBtc" destination="766" id="name-outlet-766"/>
+                        <outlet property="ArrowImageEth" destination="825" id="name-outlet-825"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -58,4 +79,7 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ArrowFlat.png" width="258" height="136"/>
+    </resources>
 </document>

@@ -15,31 +15,49 @@ namespace CoinValue.Ios
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel BtcLabel { get; set; }
+        UIKit.UIImageView ArrowImageBtc { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel EthLabel { get; set; }
+        UIKit.UIImageView ArrowImageEth { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton RefreshButton { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel ValueLabelBtc { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel ValueLabelEth { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
-            if (BtcLabel != null) {
-                BtcLabel.Dispose ();
-                BtcLabel = null;
+            if (ArrowImageBtc != null) {
+                ArrowImageBtc.Dispose ();
+                ArrowImageBtc = null;
             }
 
-            if (EthLabel != null) {
-                EthLabel.Dispose ();
-                EthLabel = null;
+            if (ArrowImageEth != null) {
+                ArrowImageEth.Dispose ();
+                ArrowImageEth = null;
             }
 
             if (RefreshButton != null) {
                 RefreshButton.Dispose ();
                 RefreshButton = null;
+            }
+
+            if (ValueLabelBtc != null) {
+                ValueLabelBtc.Dispose ();
+                ValueLabelBtc = null;
+            }
+
+            if (ValueLabelEth != null) {
+                ValueLabelEth.Dispose ();
+                ValueLabelEth = null;
             }
         }
     }
