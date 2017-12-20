@@ -3,11 +3,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:helpers="using:CoinClient.Helpers"
+      xmlns:ignore="http://galasoft.ch/ignore"
       x:Class="CoinClient.Uwp.MainPage"
-      mc:Ignorable="d">
+      mc:Ignorable="d ignore">
 
     <Page.Resources>
-        <helpers:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/MainStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <helpers:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        </ResourceDictionary>
     </Page.Resources>
 
     <Page.DataContext>
@@ -32,82 +39,97 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid Width="200"
-              Margin="0,48,0,0"
-              HorizontalAlignment="Center"
-              VerticalAlignment="Center">
+        <Grid Style="{StaticResource ArrowGridStyle}">
             <Image Source="Assets/ArrowFlat.png"
-                   VerticalAlignment="Top"
-                   Visibility="{Binding IsFlatTrendVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                   Visibility="{Binding Btc.IsFlatTrendVisible, 
+                                        FallbackValue=Visible,
+                                        Converter={StaticResource BooleanToVisibilityConverter}}" />
 
             <Image Source="Assets/ArrowDown.png"
-                   VerticalAlignment="Top"
-                   Visibility="{Binding IsDownTrendVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                   Visibility="{Binding Btc.IsDownTrendVisible, 
+                                        FallbackValue=Collapsed,
+                                        Converter={StaticResource BooleanToVisibilityConverter}}" />
 
             <Image Source="Assets/ArrowUp.png"
-                   VerticalAlignment="Top"
-                   Visibility="{Binding IsUpTrendVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                   Visibility="{Binding Btc.IsUpTrendVisible,
+                                        FallbackValue=Collapsed,
+                                        Converter={StaticResource BooleanToVisibilityConverter}}" />
         </Grid>
 
-        <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    Grid.Row="1"
-                    VerticalAlignment="Top"
-                    Margin="0,35,0,0">
-            <TextBlock HorizontalAlignment="Center"
-                       FontSize="36"
-                       Text="Value:"
+        <StackPanel Grid.Row="1"
+                    Style="{StaticResource TextPanelStyle}">
+            <TextBlock Text="BTC:"
+                       Style="{StaticResource ValueTextStyle}"
                        Margin="0,0,10,0" />
 
-            <TextBlock Text="{Binding CurrentCoinValue}"
-                       HorizontalAlignment="Center"
-                       FontSize="36" />
+            <TextBlock Text="{Binding Btc.Model.CurrentValue, FallbackValue=0}"
+                       Style="{StaticResource ValueTextStyle}" />
+
+            <TextBlock Text="U$"
+                       Style="{StaticResource ValueTextStyle}" />
+        </StackPanel>
+
+        <Grid Grid.Row="2"
+              Style="{StaticResource ArrowGridStyle}">
+            <Image Source="Assets/ArrowFlat.png"
+                   Visibility="{Binding Eth.IsFlatTrendVisible, 
+                                        FallbackValue=Visible,
+                                        Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+            <Image Source="Assets/ArrowDown.png"
+                   Visibility="{Binding Eth.IsDownTrendVisible, 
+                                        FallbackValue=Collapsed,
+                                        Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+            <Image Source="Assets/ArrowUp.png"
+                   Visibility="{Binding Eth.IsUpTrendVisible, 
+                                        FallbackValue=Collapsed,
+                                        Converter={StaticResource BooleanToVisibilityConverter}}" />
+        </Grid>
+
+        <StackPanel Grid.Row="3"
+                    Style="{StaticResource TextPanelStyle}">
+            <TextBlock Text="ETH:"
+                       Margin="0,0,10,0"
+                       Style="{StaticResource ValueTextStyle}" />
+
+            <TextBlock Text="{Binding Eth.Model.CurrentValue, FallbackValue=0}"
+                       Style="{StaticResource ValueTextStyle}" />
+
+            <TextBlock Text="U$"
+                       Style="{StaticResource ValueTextStyle}" />
         </StackPanel>
 
         <TextBlock Text="{Binding ErrorMessage}"
-                   HorizontalAlignment="Center"
-                   TextWrapping="WrapWholeWords"
-                   FontSize="20"
-                   Grid.Row="2"
-                   Foreground="Red"
-                   VerticalAlignment="Top" />
+                   Grid.Row="4"
+                   Style="{StaticResource ErrorMessageStyle}" />
 
-        <StackPanel Grid.Row="3"
-                    VerticalAlignment="Bottom"
-                    Background="#FF004185">
+        <StackPanel Grid.Row="5"
+                    Style="{StaticResource CreditPanelStyle}">
             <TextBlock Text="This sample brought to you by:"
-                       FontSize="24"
-                       Foreground="White"
-                       HorizontalAlignment="Center"
-                       Margin="0,8" />
+                       Margin="0,8"
+                       Style="{StaticResource CreditTextStyle}" />
 
             <TextBlock Text="Laurent Bugnion"
-                       Foreground="White"
-                       FontFamily="Segoe UI Semibold"
-                       FontWeight="SemiBold"
-                       HorizontalAlignment="Center"
                        FontSize="30"
-                       Margin="0" />
+                       Style="{StaticResource CreditTextBoldStyle}" />
 
             <TextBlock Text="Cloud Developer Advocate"
-                       Foreground="White"
-                       FontFamily="Segoe UI Semibold"
-                       FontWeight="SemiBold"
-                       HorizontalAlignment="Center"
                        FontSize="19"
-                       Margin="0" />
+                       Style="{StaticResource CreditTextBoldStyle}" />
 
             <TextBlock Text="LBugnion@microsoft.com | LBugnion"
-                       Foreground="White"
                        FontSize="14"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,8" />
+                       Margin="0,0,0,8"
+                       Style="{StaticResource CreditTextStyle}" />
 
             <Image Source="Assets/MSLogoSmall.png"
                    Stretch="None" />

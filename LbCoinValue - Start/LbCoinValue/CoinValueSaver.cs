@@ -1,3 +1,4 @@
+using CoinClient.Model;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.WindowsAzure.Storage;
@@ -15,7 +16,8 @@ namespace LbCoinValue
     {
         [FunctionName("CoinValueSaver")]
         public static async Task Run(
-            [TimerTrigger("0 0 */1 * * *")]
+            //[TimerTrigger("*/5 * * * * *")] // For debug only, every 5 seconds
+            [TimerTrigger("0 0 */1 * * *")] // For production, every 1 hour
             TimerInfo myTimer,
             TraceWriter log)
         {

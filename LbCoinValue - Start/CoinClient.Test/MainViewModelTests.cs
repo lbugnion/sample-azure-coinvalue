@@ -8,10 +8,8 @@ namespace CoinClient.Test
     [TestClass]
     public class MainViewModelTests
     {
-        private bool _propertyChangedUpWasCalled;
-        private bool _propertyChangedFlatWasCalled;
-        private bool _propertyChangedDownWasCalled;
-        private bool _propertyChangedValueWasCalled;
+        private bool _propertyChangedBtcWasCalled;
+        private bool _propertyChangedEthWasCalled;
         private bool _propertyChangedIsBusyWasCalled;
 
         [TestMethod]
@@ -20,49 +18,42 @@ namespace CoinClient.Test
             const double testValue = 1234.5;
             const int trendValue = 1;
 
-            _propertyChangedUpWasCalled = false;
-            _propertyChangedFlatWasCalled = false;
-            _propertyChangedDownWasCalled = false;
+            _propertyChangedEthWasCalled = false;
+            _propertyChangedBtcWasCalled = false;
 
             var service = new TestCoinService(testValue, trendValue);
 
             var vm = new MainViewModel(service);
 
             vm.PropertyChanged += MainViewModelPropertyChanged;
-
             vm.RefreshCommand.Execute(null);
 
-            Assert.IsTrue(_propertyChangedUpWasCalled);
-            Assert.IsTrue(_propertyChangedFlatWasCalled);
-            Assert.IsFalse(_propertyChangedDownWasCalled);
+            Assert.IsTrue(_propertyChangedBtcWasCalled);
+            Assert.IsTrue(_propertyChangedEthWasCalled);
 
-            Assert.IsTrue(vm.IsUpTrendVisible);
-            Assert.IsFalse(vm.IsFlatTrendVisible);
-            Assert.IsFalse(vm.IsDownTrendVisible);
+            Assert.IsTrue(vm.Btc.IsUpTrendVisible);
+            Assert.IsFalse(vm.Btc.IsFlatTrendVisible);
+            Assert.IsFalse(vm.Btc.IsDownTrendVisible);
+
+            Assert.IsTrue(vm.Eth.IsUpTrendVisible);
+            Assert.IsFalse(vm.Eth.IsFlatTrendVisible);
+            Assert.IsFalse(vm.Eth.IsDownTrendVisible);
         }
 
         private void MainViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             switch (e.PropertyName)
             {
-                case nameof(MainViewModel.IsUpTrendVisible):
-                    _propertyChangedUpWasCalled = true;
+                case nameof(MainViewModel.Btc):
+                    _propertyChangedBtcWasCalled = true;
                     break;
 
-                case nameof(MainViewModel.IsFlatTrendVisible):
-                    _propertyChangedFlatWasCalled = true;
-                    break;
-
-                case nameof(MainViewModel.IsDownTrendVisible):
-                    _propertyChangedDownWasCalled = true;
+                case nameof(MainViewModel.Eth):
+                    _propertyChangedEthWasCalled = true;
                     break;
 
                 case nameof(MainViewModel.IsBusy):
                     _propertyChangedIsBusyWasCalled = true;
-                    break;
-
-                case nameof(MainViewModel.CurrentCoinValue):
-                    _propertyChangedValueWasCalled = true;
                     break;
             }
         }
@@ -73,25 +64,26 @@ namespace CoinClient.Test
             const double testValue = 1234.5;
             const int trendValue = -1;
 
-            _propertyChangedUpWasCalled = false;
-            _propertyChangedFlatWasCalled = false;
-            _propertyChangedDownWasCalled = false;
+            _propertyChangedEthWasCalled = false;
+            _propertyChangedBtcWasCalled = false;
 
             var service = new TestCoinService(testValue, trendValue);
 
             var vm = new MainViewModel(service);
 
             vm.PropertyChanged += MainViewModelPropertyChanged;
-
             vm.RefreshCommand.Execute(null);
 
-            Assert.IsFalse(_propertyChangedUpWasCalled);
-            Assert.IsTrue(_propertyChangedFlatWasCalled);
-            Assert.IsTrue(_propertyChangedDownWasCalled);
+            Assert.IsTrue(_propertyChangedBtcWasCalled);
+            Assert.IsTrue(_propertyChangedEthWasCalled);
 
-            Assert.IsFalse(vm.IsUpTrendVisible);
-            Assert.IsFalse(vm.IsFlatTrendVisible);
-            Assert.IsTrue(vm.IsDownTrendVisible);
+            Assert.IsFalse(vm.Btc.IsUpTrendVisible);
+            Assert.IsFalse(vm.Btc.IsFlatTrendVisible);
+            Assert.IsTrue(vm.Btc.IsDownTrendVisible);
+
+            Assert.IsFalse(vm.Eth.IsUpTrendVisible);
+            Assert.IsFalse(vm.Eth.IsFlatTrendVisible);
+            Assert.IsTrue(vm.Eth.IsDownTrendVisible);
         }
 
         [TestMethod]
@@ -100,25 +92,26 @@ namespace CoinClient.Test
             const double testValue = 1234.5;
             const int trendValue = 0;
 
-            _propertyChangedUpWasCalled = false;
-            _propertyChangedFlatWasCalled = false;
-            _propertyChangedDownWasCalled = false;
+            _propertyChangedEthWasCalled = false;
+            _propertyChangedBtcWasCalled = false;
 
             var service = new TestCoinService(testValue, trendValue);
 
             var vm = new MainViewModel(service);
 
             vm.PropertyChanged += MainViewModelPropertyChanged;
-
             vm.RefreshCommand.Execute(null);
 
-            Assert.IsFalse(_propertyChangedUpWasCalled);
-            Assert.IsFalse(_propertyChangedFlatWasCalled);
-            Assert.IsFalse(_propertyChangedDownWasCalled);
+            Assert.IsTrue(_propertyChangedBtcWasCalled);
+            Assert.IsTrue(_propertyChangedEthWasCalled);
 
-            Assert.IsFalse(vm.IsUpTrendVisible);
-            Assert.IsTrue(vm.IsFlatTrendVisible);
-            Assert.IsFalse(vm.IsDownTrendVisible);
+            Assert.IsFalse(vm.Btc.IsUpTrendVisible);
+            Assert.IsTrue(vm.Btc.IsFlatTrendVisible);
+            Assert.IsFalse(vm.Btc.IsDownTrendVisible);
+
+            Assert.IsFalse(vm.Eth.IsUpTrendVisible);
+            Assert.IsTrue(vm.Eth.IsFlatTrendVisible);
+            Assert.IsFalse(vm.Eth.IsDownTrendVisible);
         }
 
         [TestMethod]
@@ -127,7 +120,8 @@ namespace CoinClient.Test
             const double testValue = 1234.5;
             const int trendValue = 0;
 
-            _propertyChangedValueWasCalled = false;
+            _propertyChangedEthWasCalled = false;
+            _propertyChangedBtcWasCalled = false;
 
             var service = new TestCoinService(testValue, trendValue);
 
@@ -137,8 +131,8 @@ namespace CoinClient.Test
 
             vm.RefreshCommand.Execute(null);
 
-            Assert.IsTrue(_propertyChangedValueWasCalled);
-            Assert.AreEqual(testValue, vm.CurrentCoinValue);
+            Assert.AreEqual(testValue, vm.Btc.Model.CurrentValue);
+            Assert.AreEqual(testValue, vm.Eth.Model.CurrentValue);
         }
 
         [TestMethod]

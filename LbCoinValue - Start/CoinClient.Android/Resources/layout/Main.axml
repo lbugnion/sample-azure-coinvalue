@@ -7,32 +7,78 @@
     android:minHeight="25px">
     <ImageView
         android:src="@drawable/arrowflat"
-        android:layout_width="180.0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/ArrowImage"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="120.0dp"
+        android:layout_height="80dp"
+        android:id="@+id/ArrowImageBtc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
     <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ArrowImage"
+        android:id="@+id/ValuePanelBtc"
+        android:layout_below="@+id/ArrowImageBtc"
         android:layout_centerHorizontal="true">
         <TextView
-            android:text="Value:"
+            android:text="BTC:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="36dp"
+            android:textSize="30dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/black" />
         <TextView
             android:text="0.0"
-            android:id="@+id/ValueLabel"
-            android:textSize="36dp"
+            android:id="@+id/ValueLabelBtc"
+            android:textSize="30dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:foreground="@color/black"
+            android:textColor="@color/black" />
+        <TextView
+            android:text="U$"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <ImageView
+        android:src="@drawable/arrowflat"
+        android:layout_width="120.0dp"
+        android:layout_height="80dp"
+        android:id="@+id/ArrowImageEth"
+        android:layout_below="@+id/ValuePanelBtc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ArrowImageEth"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:text="ETH:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+        <TextView
+            android:text="0.0"
+            android:id="@+id/ValueLabelEth"
+            android:textSize="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:foreground="@color/black"
+            android:textColor="@color/black" />
+        <TextView
+            android:text="U$"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
             android:textColor="@color/black" />
     </LinearLayout>
     <LinearLayout

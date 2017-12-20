@@ -78,6 +78,39 @@ namespace CoinClient.Uwp
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
+
+                // This should come before MobileCenter.Start() is called
+                Push.PushNotificationReceived += (sender, e2) =>
+                {
+                    var content = new ToastContent()
+                    {
+                        Visual = new ToastVisual()
+                        {
+                            BindingGeneric = new ToastBindingGeneric
+                            {
+                                Children =
+                                {
+                                    new AdaptiveText()
+                                    {
+                                        Text = e2.Title,
+                                        HintMaxLines = 1
+                                    },
+
+                                    new AdaptiveText()
+                                    {
+                                        Text = e2.Message
+                                    },
+                                }
+                            }
+                        }
+                    };
+
+                    var toast = new ToastNotification(content.GetXml());
+                    ToastNotificationManager.CreateToastNotifier().Show(toast);
+                };
+
+                MobileCenter.Start("f93448a8-9f34-46ea-86f9-f90e436f9504", typeof(Push));
+                Push.CheckLaunchedFromNotification(e);
             }
         }
 

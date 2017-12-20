@@ -38,6 +38,7 @@
     <Compile Include="Model\CoinTrend.cs" />
     <Compile Include="Model\ICoinService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\CoinTrendViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
   </ItemGroup>

@@ -17,9 +17,6 @@ namespace CoinClient
 
         private Button _refreshButton;
 
-        /// <summary>
-        /// Gets the RefreshButton UI element.
-        /// </summary>
         public Button RefreshButton
         {
             get
@@ -29,31 +26,47 @@ namespace CoinClient
             }
         }
 
-        private TextView _valueLabel;
+        private TextView _valueLabelBtc;
 
-        /// <summary>
-        /// Gets the ValueLabel UI element.
-        /// </summary>
-        public TextView ValueLabel
+        public TextView ValueLabelBtc
         {
             get
             {
-                return _valueLabel
-                       ?? (_valueLabel = FindViewById<TextView>(Resource.Id.ValueLabel));
+                return _valueLabelBtc
+                       ?? (_valueLabelBtc = FindViewById<TextView>(Resource.Id.ValueLabelBtc));
             }
         }
 
-        private ImageView _arrowImage;
+        private ImageView _arrowImageBtc;
 
-        /// <summary>
-        /// Gets the ArrowImage UI element.
-        /// </summary>
-        public ImageView ArrowImage
+        public ImageView ArrowImageBtc
         {
             get
             {
-                return _arrowImage
-                       ?? (_arrowImage = FindViewById<ImageView>(Resource.Id.ArrowImage));
+                return _arrowImageBtc
+                       ?? (_arrowImageBtc = FindViewById<ImageView>(Resource.Id.ArrowImageBtc));
+            }
+        }
+
+        private TextView _valueLabelEth;
+
+        public TextView ValueLabelEth
+        {
+            get
+            {
+                return _valueLabelEth
+                       ?? (_valueLabelEth = FindViewById<TextView>(Resource.Id.ValueLabelEth));
+            }
+        }
+
+        private ImageView _arrowImageEth;
+
+        public ImageView ArrowImageEth
+        {
+            get
+            {
+                return _arrowImageEth
+                       ?? (_arrowImageEth = FindViewById<ImageView>(Resource.Id.ArrowImageEth));
             }
         }
     }

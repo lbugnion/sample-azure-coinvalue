@@ -28,7 +28,9 @@ namespace LbCoinValue
             await table.CreateIfNotExistsAsync();
 
             // Get the last 10 coin
-            var coinsQuery = table.CreateQuery<CoinEntity>().ToList();
+            var coinsQuery = table.CreateQuery<CoinEntity>()
+                .Where(c => c.Symbol == CoinTrend.SymbolBtc)
+                .ToList();
             var count = coinsQuery.Count;
 
             var trend = new CoinTrend();
