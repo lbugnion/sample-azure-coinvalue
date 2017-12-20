@@ -7,7 +7,7 @@ namespace CoinClient.ViewModel
 {
     public class ViewModelLocator
     {
-        private const bool ForceDesignData = true;
+        private const bool ForceDesignData = false;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
