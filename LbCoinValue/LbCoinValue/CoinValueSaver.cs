@@ -15,7 +15,7 @@ namespace LbCoinValue
     public static class CoinValueSaver
     {
         private const string Url = "https://api.coinmarketcap.com/v1/ticker/";
-        public const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=lbhackfest;AccountKey=PMYwcvXDTWcnoT3G4XbL4rLhLb2SIDRDOVCvmyP3uA08MXWNGNch86ozxeHuASz8Ket0TEmcqhNoopfIT1T7qw==;BlobEndpoint=https://lbhackfest.blob.core.windows.net/;QueueEndpoint=https://lbhackfest.queue.core.windows.net/;TableEndpoint=https://lbhackfest.table.core.windows.net/;FileEndpoint=https://lbhackfest.file.core.windows.net/;";
+        public const string ConnectionString = "[YOUR CONNECTION STRING HERE]";
         public const string TableName = "coins";
 
         [FunctionName("CoinValueSaver")]
